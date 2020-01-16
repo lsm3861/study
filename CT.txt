@@ -1,0 +1,73 @@
+(0008, 0005) Specific Character Set              CS: 'ISO_IR 100'
+(0008, 0008) Image Type                          CS: ['ORIGINAL', 'PRIMARY', 'AXIAL', 'HELIX']
+(0008, 0012) Instance Creation Date              DA: '20140818'
+(0008, 0013) Instance Creation Time              TM: '133108.325000'
+(0008, 0016) SOP Class UID                       UI: CT Image Storage
+(0008, 0018) SOP Instance UID                    UI: 1.2.840.113704.1.111.5956.1407919894.5141
+(0008, 0020) Study Date                          DA: '20140813'
+(0008, 0021) Series Date                         DA: '20140813'
+(0008, 0023) Content Date                        DA: '20140813'
+(0008, 0030) Study Time                          TM: '174815'
+(0008, 0031) Series Time                         TM: '175241.570000'
+(0008, 0033) Content Time                        TM: '174950.123000'
+(0008, 0050) Accession Number                    SH: '1408130011'
+(0008, 0060) Modality                            CS: 'CT'
+(0008, 0070) Manufacturer                        LO: 'Philips'
+(0008, 0080) Institution Name                    LO: 'S.N.U.H.RO'
+(0008, 0090) Referring Physician's Name          PN: ''
+(0008, 1010) Station Name                        SH: 'HOST-7061'
+(0008, 1030) Study Description                   LO: 'Brain CT pre contras'
+(0008, 103e) Series Description                  LO: 'PRE'
+(0008, 1040) Institutional Department Name       LO: 'ONCOLOGY'
+(0008, 1090) Manufacturer's Model Name           LO: 'Brilliance Big Bore'
+(0010, 0010) Patient's Name                      PN: 'JEONG^MI JA'
+(0010, 0020) Patient ID                          LO: '42860819'
+(0010, 0030) Patient's Birth Date                DA: '19541017'
+(0010, 0032) Patient's Birth Time                TM: '000000'
+(0010, 0040) Patient's Sex                       CS: 'F'
+(0010, 1000) Other Patient IDs                   LO: 'G'
+(0018, 0022) Scan Options                        CS: 'HELIX'
+(0018, 0050) Slice Thickness                     DS: "3"
+(0018, 0060) KVP                                 DS: "120"
+(0018, 0090) Data Collection Diameter            DS: "600"
+(0018, 1020) Software Version(s)                 LO: '3.5.5'
+(0018, 1100) Reconstruction Diameter             DS: "521"
+(0018, 1120) Gantry/Detector Tilt                DS: "0.0"
+(0018, 1130) Table Height                        DS: "170"
+(0018, 1140) Rotation Direction                  CS: 'CW'
+(0018, 1150) Exposure Time                       IS: "1332"
+(0018, 1151) X-Ray Tube Current                  IS: "263"
+(0018, 1152) Exposure                            IS: "350"
+(0018, 1160) Filter Type                         SH: 'UC'
+(0018, 1210) Convolution Kernel                  SH: 'UC'
+(0018, 5100) Patient Position                    CS: 'HFS'
+(0020, 000d) Study Instance UID                  UI: 1.2.840.113704.1.111.4164.1407919689.32
+(0020, 000e) Series Instance UID                 UI: 1.2.840.113704.1.111.740.1407919890.3
+(0020, 0010) Study ID                            SH: 'C1'
+(0020, 0011) Series Number                       IS: "10287"
+(0020, 0012) Acquisition Number                  IS: ''
+(0020, 0013) Instance Number                     IS: "1"
+(0020, 0032) Image Position (Patient)            DS: ['-260.5', '-175.5', '90']
+(0020, 0037) Image Orientation (Patient)         DS: ['1', '0.0', '0.0', '0.0', '1', '0.0']
+(0020, 0052) Frame of Reference UID              UI: 1.2.840.113704.1.111.7732.1407919701.5
+(0020, 1040) Position Reference Indicator        LO: ''
+(0020, 1041) Slice Location                      DS: "90"
+(0020, 4000) Image Comments                      LT: 'PRE'
+(0028, 0002) Samples per Pixel                   US: 1
+(0028, 0004) Photometric Interpretation          CS: 'MONOCHROME2'
+(0028, 0010) Rows                                US: 512
+(0028, 0011) Columns                             US: 512
+(0028, 0030) Pixel Spacing                       DS: ['1.01757812', '1.01757812']
+(0028, 0100) Bits Allocated                      US: 16
+(0028, 0101) Bits Stored                         US: 12
+(0028, 0102) High Bit                            US: 11
+(0028, 0103) Pixel Representation                US: 0
+(0028, 1050) Window Center                       DS: "40"
+(0028, 1051) Window Width                        DS: "80"
+(0028, 1052) Rescale Intercept                   DS: "-1024"
+(0028, 1053) Rescale Slope                       DS: "1"
+(3253, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3253'
+(3253, 1000) [XML stream.]                       UN: Array of 148 elements
+(3253, 1001) [Data length of the XML stream]     UN: b'0 '
+(3253, 1002) [Extended Interface Format tag]     UN: b'ImageProcessing '
+(7fe0, 0010) Pixel Data                          OW: Array of 524288 elements

@@ -1,0 +1,450 @@
+(0008, 0005) Specific Character Set              CS: 'ISO_IR 100'
+(0008, 0012) Instance Creation Date              DA: '20140818'
+(0008, 0013) Instance Creation Time              TM: '133111.543000'
+(0008, 0016) SOP Class UID                       UI: RT Dose Storage
+(0008, 0018) SOP Instance UID                    UI: 1.2.246.352.71.7.482169467.884472.20140818115809
+(0008, 0020) Study Date                          DA: '20140813'
+(0008, 0030) Study Time                          TM: '174815'
+(0008, 0050) Accession Number                    SH: '1408130011'
+(0008, 0060) Modality                            CS: 'RTDOSE'
+(0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+(0008, 0090) Referring Physician's Name          PN: ''
+(0008, 1010) Station Name                        SH: 'aria10'
+(0008, 1030) Study Description                   LO: 'Brain CT pre contras'
+(0008, 103e) Series Description                  LO: 'Eclipse Doses'
+(0008, 1090) Manufacturer's Model Name           LO: 'ARIA RadOnc'
+(0010, 0010) Patient's Name                      PN: 'JEONG^MI JA'
+(0010, 0020) Patient ID                          LO: '42860819'
+(0010, 0030) Patient's Birth Date                DA: '19541017'
+(0010, 0032) Patient's Birth Time                TM: '000000'
+(0010, 0040) Patient's Sex                       CS: 'F'
+(0010, 1000) Other Patient IDs                   LO: 'G'
+(0018, 0050) Slice Thickness                     DS: ''
+(0018, 1000) Device Serial Number                LO: '482169467'
+(0018, 1020) Software Version(s)                 LO: '10.0.42'
+(0020, 000d) Study Instance UID                  UI: 1.2.840.113704.1.111.4164.1407919689.32
+(0020, 000e) Series Instance UID                 UI: 1.2.246.352.71.2.482169467.4576643.20140814101004
+(0020, 0010) Study ID                            SH: 'C1'
+(0020, 0011) Series Number                       IS: "10296"
+(0020, 0013) Instance Number                     IS: ''
+(0020, 0032) Image Position (Patient)            DS: ['-211.4967926', '-5.643693204', '-243']
+(0020, 0037) Image Orientation (Patient)         DS: ['1', '0.0', '0.0', '0.0', '1', '0.0']
+(0020, 0052) Frame of Reference UID              UI: 1.2.840.113704.1.111.7732.1407919701.5
+(0020, 1040) Position Reference Indicator        LO: ''
+(0028, 0002) Samples per Pixel                   US: 1
+(0028, 0004) Photometric Interpretation          CS: 'MONOCHROME2'
+(0028, 0008) Number of Frames                    IS: "112"
+(0028, 0009) Frame Increment Pointer             AT: (3004, 000c)
+(0028, 0010) Rows                                US: 104
+(0028, 0011) Columns                             US: 174
+(0028, 0030) Pixel Spacing                       DS: ['2.5', '2.5']
+(0028, 0100) Bits Allocated                      US: 32
+(0028, 0101) Bits Stored                         US: 32
+(0028, 0102) High Bit                            US: 31
+(0028, 0103) Pixel Representation                US: 0
+(3004, 0002) Dose Units                          CS: 'GY'
+(3004, 0004) Dose Type                           CS: 'PHYSICAL'
+(3004, 000a) Dose Summation Type                 CS: 'PLAN'
+(3004, 000c) Grid Frame Offset Vector            DS: Array of 112 elements
+(3004, 000e) Dose Grid Scaling                   DS: "7.4257034e-6"
+(3004, 0014) Tissue Heterogeneity Correction     CS: 'IMAGE'
+(3004, 0050)  DVH Sequence   26 item(s) ---- 
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1601"
+   (3004, 0058) DVH Data                            DS: Array of 3202 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "1"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "6.3985426e-4"
+   (3004, 0072) DVH Maximum Dose                    DS: "106.641309786636"
+   (3004, 0074) DVH Mean Dose                       DS: "34.9854922593405"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1509"
+   (3004, 0058) DVH Data                            DS: Array of 3018 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "2"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "6.3985426e-4"
+   (3004, 0072) DVH Maximum Dose                    DS: "100.480792997714"
+   (3004, 0074) DVH Mean Dose                       DS: "24.9789357171093"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "24"
+   (3004, 0058) DVH Data                            DS: Array of 48 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "4"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "6.5713032e-1"
+   (3004, 0072) DVH Maximum Dose                    DS: "1.53117123762889"
+   (3004, 0074) DVH Mean Dose                       DS: "9.7175619e-1"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1554"
+   (3004, 0058) DVH Data                            DS: Array of 3108 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "6"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "10.4161874539744"
+   (3004, 0072) DVH Maximum Dose                    DS: "103.499625383478"
+   (3004, 0074) DVH Mean Dose                       DS: "47.4255337346494"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1547"
+   (3004, 0058) DVH Data                            DS: Array of 3094 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "8"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "99.9983428877377"
+   (3004, 0072) DVH Maximum Dose                    DS: "103.027412941618"
+   (3004, 0074) DVH Mean Dose                       DS: "101.549954384687"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "200"
+   (3004, 0058) DVH Data                            DS: Array of 400 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "10"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "9.53830741301041"
+   (3004, 0072) DVH Maximum Dose                    DS: "13.2136302667256"
+   (3004, 0074) DVH Mean Dose                       DS: "11.0096114352957"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1535"
+   (3004, 0058) DVH Data                            DS: Array of 3070 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "12"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "100.121194905132"
+   (3004, 0072) DVH Maximum Dose                    DS: "102.262147249932"
+   (3004, 0074) DVH Mean Dose                       DS: "101.74401575439"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1541"
+   (3004, 0058) DVH Data                            DS: Array of 3082 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "3"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "99.5466057821105"
+   (3004, 0072) DVH Maximum Dose                    DS: "102.61790621697"
+   (3004, 0074) DVH Mean Dose                       DS: "100.789005118562"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1539"
+   (3004, 0058) DVH Data                            DS: Array of 3078 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "5"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "98.7288720413292"
+   (3004, 0072) DVH Maximum Dose                    DS: "102.48225711443"
+   (3004, 0074) DVH Mean Dose                       DS: "99.8087561799902"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1524"
+   (3004, 0058) DVH Data                            DS: Array of 3048 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "7"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "20.3057748542219"
+   (3004, 0072) DVH Maximum Dose                    DS: "101.522475728537"
+   (3004, 0074) DVH Mean Dose                       DS: "100.230566412838"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1557"
+   (3004, 0058) DVH Data                            DS: Array of 3114 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "9"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "9.31819754851215"
+   (3004, 0072) DVH Maximum Dose                    DS: "103.674945449967"
+   (3004, 0074) DVH Mean Dose                       DS: "55.7602612853695"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1550"
+   (3004, 0058) DVH Data                            DS: Array of 3100 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "11"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "98.6213765261091"
+   (3004, 0072) DVH Maximum Dose                    DS: "103.246243097602"
+   (3004, 0074) DVH Mean Dose                       DS: "100.745690180718"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1552"
+   (3004, 0058) DVH Data                            DS: Array of 3104 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "13"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "100.771286830511"
+   (3004, 0072) DVH Maximum Dose                    DS: "103.390850159743"
+   (3004, 0074) DVH Mean Dose                       DS: "101.786793925939"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1564"
+   (3004, 0058) DVH Data                            DS: Array of 3128 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "14"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "8.77176201281007"
+   (3004, 0072) DVH Maximum Dose                    DS: "104.191947689835"
+   (3004, 0074) DVH Mean Dose                       DS: "41.3726169259753"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1581"
+   (3004, 0058) DVH Data                            DS: Array of 3162 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "16"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "6.6141734573213"
+   (3004, 0072) DVH Maximum Dose                    DS: "105.330888267762"
+   (3004, 0074) DVH Mean Dose                       DS: "81.2037760209675"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1565"
+   (3004, 0058) DVH Data                            DS: Array of 3130 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "18"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "6.64872558721347"
+   (3004, 0072) DVH Maximum Dose                    DS: "104.244415738931"
+   (3004, 0074) DVH Mean Dose                       DS: "84.0087222499588"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1527"
+   (3004, 0058) DVH Data                            DS: Array of 3054 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "20"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "98.8171719288314"
+   (3004, 0072) DVH Maximum Dose                    DS: "101.692676960969"
+   (3004, 0074) DVH Mean Dose                       DS: "99.8778568988702"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1525"
+   (3004, 0058) DVH Data                            DS: Array of 3050 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "22"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "100.645875396087"
+   (3004, 0072) DVH Maximum Dose                    DS: "101.595419113865"
+   (3004, 0074) DVH Mean Dose                       DS: "101.202467019092"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1548"
+   (3004, 0058) DVH Data                            DS: Array of 3096 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "24"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "101.8628781934"
+   (3004, 0072) DVH Maximum Dose                    DS: "103.118272246149"
+   (3004, 0074) DVH Mean Dose                       DS: "102.310585904973"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1590"
+   (3004, 0058) DVH Data                            DS: Array of 3180 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "26"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "98.2208277610628"
+   (3004, 0072) DVH Maximum Dose                    DS: "105.879883220494"
+   (3004, 0074) DVH Mean Dose                       DS: "102.332066356175"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "182"
+   (3004, 0058) DVH Data                            DS: Array of 364 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "15"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "9.20558319923397"
+   (3004, 0072) DVH Maximum Dose                    DS: "12.0260607652466"
+   (3004, 0074) DVH Mean Dose                       DS: "10.1692177635955"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1568"
+   (3004, 0058) DVH Data                            DS: Array of 3136 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "17"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "101.725949382346"
+   (3004, 0072) DVH Maximum Dose                    DS: "104.400540177703"
+   (3004, 0074) DVH Mean Dose                       DS: "103.061939231184"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1543"
+   (3004, 0058) DVH Data                            DS: Array of 3086 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "19"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "100.727776741017"
+   (3004, 0072) DVH Maximum Dose                    DS: "102.774030655742"
+   (3004, 0074) DVH Mean Dose                       DS: "101.780607572848"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1531"
+   (3004, 0058) DVH Data                            DS: Array of 3062 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "21"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "101.010592322727"
+   (3004, 0072) DVH Maximum Dose                    DS: "101.992128753367"
+   (3004, 0074) DVH Mean Dose                       DS: "101.478357327328"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1531"
+   (3004, 0058) DVH Data                            DS: Array of 3062 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "23"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "98.9835340357196"
+   (3004, 0072) DVH Maximum Dose                    DS: "101.946059246844"
+   (3004, 0074) DVH Mean Dose                       DS: "100.855212999214"
+   ---------
+   (3004, 0001) DVH Type                            CS: 'CUMULATIVE'
+   (3004, 0002) Dose Units                          CS: 'GY'
+   (3004, 0004) Dose Type                           CS: 'PHYSICAL'
+   (3004, 0052) DVH Dose Scaling                    DS: "1"
+   (3004, 0054) DVH Volume Units                    CS: 'CM3'
+   (3004, 0056) DVH Number of Bins                  IS: "1096"
+   (3004, 0058) DVH Data                            DS: Array of 2192 elements
+   (3004, 0060)  DVH Referenced ROI Sequence   1 item(s) ---- 
+      (3004, 0062) DVH ROI Contribution Type           CS: 'INCLUDED'
+      (3006, 0084) Referenced ROI Number               IS: "25"
+      ---------
+   (3004, 0070) DVH Minimum Dose                    DS: "9.60613196428023"
+   (3004, 0072) DVH Maximum Dose                    DS: "72.9363469310823"
+   (3004, 0074) DVH Mean Dose                       DS: "14.5731293471241"
+   ---------
+(300c, 0002)  Referenced RT Plan Sequence   1 item(s) ---- 
+   (0008, 1150) Referenced SOP Class UID            UI: RT Plan Storage
+   (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.5.482169467.351676.20140814101105
+   ---------
+(300c, 0060)  Referenced Structure Set Sequence   1 item(s) ---- 
+   (0008, 1150) Referenced SOP Class UID            UI: RT Structure Set Storage
+   (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.4.482169467.88444.20140818133058
+   ---------
+(7fe0, 0010) Pixel Data                          OW: Array of 8107008 elements

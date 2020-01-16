@@ -1,0 +1,657 @@
+(0008, 0005) Specific Character Set              CS: 'ISO_IR 100'
+(0008, 0012) Instance Creation Date              DA: '20140818'
+(0008, 0013) Instance Creation Time              TM: '133111.306000'
+(0008, 0016) SOP Class UID                       UI: RT Plan Storage
+(0008, 0018) SOP Instance UID                    UI: 1.2.246.352.71.5.482169467.351676.20140814101105
+(0008, 0020) Study Date                          DA: '20140813'
+(0008, 0030) Study Time                          TM: '174815'
+(0008, 0050) Accession Number                    SH: '1408130011'
+(0008, 0060) Modality                            CS: 'RTPLAN'
+(0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+(0008, 0090) Referring Physician's Name          PN: ''
+(0008, 1010) Station Name                        SH: 'aria10'
+(0008, 1030) Study Description                   LO: 'Brain CT pre contras'
+(0008, 103e) Series Description                  LO: 'ARIA RadOnc Plans'
+(0008, 1070) Operators' Name                     PN: 'plan'
+(0008, 1090) Manufacturer's Model Name           LO: 'ARIA RadOnc'
+(0010, 0010) Patient's Name                      PN: 'JEONG^MI JA'
+(0010, 0020) Patient ID                          LO: '42860819'
+(0010, 0030) Patient's Birth Date                DA: '19541017'
+(0010, 0032) Patient's Birth Time                TM: '000000'
+(0010, 0040) Patient's Sex                       CS: 'F'
+(0010, 1000) Other Patient IDs                   LO: 'G'
+(0018, 1000) Device Serial Number                LO: '482169467'
+(0018, 1020) Software Version(s)                 LO: '10.0.42'
+(0020, 000d) Study Instance UID                  UI: 1.2.840.113704.1.111.4164.1407919689.32
+(0020, 000e) Series Instance UID                 UI: 1.2.246.352.71.2.482169467.4576636.20140814093626
+(0020, 0010) Study ID                            SH: 'C1'
+(0020, 0011) Series Number                       IS: "10289"
+(0020, 0052) Frame of Reference UID              UI: 1.2.840.113704.1.111.7732.1407919701.5
+(0020, 1040) Position Reference Indicator        LO: ''
+(300a, 0002) RT Plan Label                       SH: 'WB(15)'
+(300a, 0006) RT Plan Date                        DA: '20140818'
+(300a, 0007) RT Plan Time                        TM: '133101.273000'
+(300a, 000a) Plan Intent                         CS: 'CURATIVE'
+(300a, 000c) RT Plan Geometry                    CS: 'PATIENT'
+(300a, 0010)  Dose Reference Sequence   1 item(s) ---- 
+   (300a, 0012) Dose Reference Number               IS: "1"
+   (300a, 0013) Dose Reference UID                  UI: 1.2.246.352.71.10.482169467.161674.20140814093647
+   (300a, 0014) Dose Reference Structure Type       CS: 'SITE'
+   (300a, 0016) Dose Reference Description          LO: 'None'
+   (300a, 0020) Dose Reference Type                 CS: 'ORGAN_AT_RISK'
+   (3267, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3267'
+   (3267, 1000) Private tag data                    UN: b'None'
+   ---------
+(300a, 0040)  Tolerance Table Sequence   1 item(s) ---- 
+   (300a, 0042) Tolerance Table Number              IS: "3"
+   (300a, 0043) Tolerance Table Label               SH: 'PHOTON'
+   (300a, 0044) Gantry Angle Tolerance              DS: "2.0e-1"
+   (300a, 0046) Beam Limiting Device Angle Toleranc DS: "2.0e-1"
+   (300a, 0048)  Beam Limiting Device Tolerance Sequence   4 item(s) ---- 
+      (300a, 004a) Beam Limiting Device Position Toler DS: "1"
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'X'
+      ---------
+      (300a, 004a) Beam Limiting Device Position Toler DS: "1"
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+      ---------
+      (300a, 004a) Beam Limiting Device Position Toler DS: "1"
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'Y'
+      ---------
+      (300a, 004a) Beam Limiting Device Position Toler DS: "1"
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+      ---------
+   (300a, 004c) Patient Support Angle Tolerance     DS: "3"
+   (300a, 0051) Table Top Vertical Position Toleran DS: "20"
+   (300a, 0052) Table Top Longitudinal Position Tol DS: "300"
+   (300a, 0053) Table Top Lateral Position Toleranc DS: "300"
+   ---------
+(300a, 0070)  Fraction Group Sequence   1 item(s) ---- 
+   (300a, 0071) Fraction Group Number               IS: "1"
+   (300a, 0078) Number of Fractions Planned         IS: "6"
+   (300a, 0080) Number of Beams                     IS: "6"
+   (300a, 00a0) Number of Brachy Application Setups IS: "0"
+   (300c, 0004)  Referenced Beam Sequence   6 item(s) ---- 
+      (300a, 0084) Beam Dose                           DS: "1.11944027986007"
+      (300a, 0086) Beam Meterset                       DS: "126.157455721293"
+      (300c, 0006) Referenced Beam Number              IS: "1"
+      (3249, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3249'
+      (3249, 1000) Private tag data                    UN: b'1 '
+      (3249, 1010) Private tag data                    UN: Array of 50 elements
+      ---------
+      (300a, 0084) Beam Dose                           DS: "1.14942528735632"
+      (300a, 0086) Beam Meterset                       DS: "126.362568898529"
+      (300c, 0006) Referenced Beam Number              IS: "2"
+      (3249, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3249'
+      (3249, 1000) Private tag data                    UN: b'1 '
+      (3249, 1010) Private tag data                    UN: Array of 50 elements
+      ---------
+      (300a, 0084) Beam Dose                           DS: "7.2463768e-2"
+      (300a, 0086) Beam Meterset                       DS: "8.25236916476045"
+      (300c, 0006) Referenced Beam Number              IS: "3"
+      (3249, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3249'
+      (3249, 1000) Private tag data                    UN: b'1 '
+      (3249, 1010) Private tag data                    UN: Array of 50 elements
+      ---------
+      (300a, 0084) Beam Dose                           DS: "6.8715642e-2"
+      (300a, 0086) Beam Meterset                       DS: "7.61279499518939"
+      (300c, 0006) Referenced Beam Number              IS: "4"
+      (3249, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3249'
+      (3249, 1000) Private tag data                    UN: b'1 '
+      (3249, 1010) Private tag data                    UN: Array of 50 elements
+      ---------
+      (300a, 0084) Beam Dose                           DS: "4.4977511e-2"
+      (300a, 0086) Beam Meterset                       DS: "5.28306592399593"
+      (300c, 0006) Referenced Beam Number              IS: "5"
+      (3249, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3249'
+      (3249, 1000) Private tag data                    UN: b'1 '
+      (3249, 1010) Private tag data                    UN: Array of 50 elements
+      ---------
+      (300a, 0084) Beam Dose                           DS: "4.4977511e-2"
+      (300a, 0086) Beam Meterset                       DS: "5.11583290167332"
+      (300c, 0006) Referenced Beam Number              IS: "6"
+      (3249, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3249'
+      (3249, 1000) Private tag data                    UN: b'1 '
+      (3249, 1010) Private tag data                    UN: Array of 50 elements
+      ---------
+   ---------
+(300a, 00b0)  Beam Sequence   6 item(s) ---- 
+   (0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+   (0008, 0080) Institution Name                    LO: 'Seoul National University Hospital'
+   (0008, 1040) Institutional Department Name       LO: 'Radiation Oncolo'
+   (0008, 1090) Manufacturer's Model Name           LO: '600C/D'
+   (0018, 1000) Device Serial Number                LO: '706'
+   (3002, 0050)  Primary Fluence Mode Sequence   1 item(s) ---- 
+      (3002, 0051) Fluence Mode                        CS: 'STANDARD'
+      ---------
+   (300a, 00b2) Treatment Machine Name              SH: '6EX_2013'
+   (300a, 00b3) Primary Dosimeter Unit              CS: 'MU'
+   (300a, 00b4) Source-Axis Distance                DS: "1000"
+   (300a, 00b6)  Beam Limiting Device Sequence   3 item(s) ---- 
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'X'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'Y'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+      (300a, 00ba) Source to Beam Limiting Device Dist DS: "508.610781"
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "60"
+      (300a, 00be) Leaf Position Boundaries            DS: Array of 61 elements
+      ---------
+   (300a, 00c0) Beam Number                         IS: "1"
+   (300a, 00c2) Beam Name                           LO: '01_LAO-1'
+   (300a, 00c4) Beam Type                           CS: 'STATIC'
+   (300a, 00c6) Radiation Type                      CS: 'PHOTON'
+   (300a, 00ce) Treatment Delivery Type             CS: 'TREATMENT'
+   (300a, 00d0) Number of Wedges                    IS: "0"
+   (300a, 00e0) Number of Compensators              IS: "0"
+   (300a, 00ed) Number of Boli                      IS: "0"
+   (300a, 00f0) Number of Blocks                    IS: "0"
+   (300a, 010e) Final Cumulative Meterset Weight    DS: "1"
+   (300a, 0110) Number of Control Points            IS: "2"
+   (300a, 0111)  Control Point Sequence   2 item(s) ---- 
+      (300a, 0112) Control Point Index                 IS: "0"
+      (300a, 0114) Nominal Beam Energy                 DS: "6"
+      (300a, 0115) Dose Rate Set                       DS: "600"
+      (300a, 011a)  Beam Limiting Device Position Sequence   3 item(s) ---- 
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'X'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-105', '105']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'Y'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-95', '95']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: Array of 120 elements
+         ---------
+      (300a, 011e) Gantry Angle                        DS: "85"
+      (300a, 011f) Gantry Rotation Direction           CS: 'NONE'
+      (300a, 0120) Beam Limiting Device Angle          DS: "0.0"
+      (300a, 0121) Beam Limiting Device Rotation Direc CS: 'NONE'
+      (300a, 0122) Patient Support Angle               DS: "0.0"
+      (300a, 0123) Patient Support Rotation Direction  CS: 'NONE'
+      (300a, 0125) Table Top Eccentric Angle           DS: "0.0"
+      (300a, 0126) Table Top Eccentric Rotation Direct CS: 'NONE'
+      (300a, 0128) Table Top Vertical Position         DS: "0.0"
+      (300a, 0129) Table Top Longitudinal Position     DS: "1000"
+      (300a, 012a) Table Top Lateral Position          DS: "0.0"
+      (300a, 012c) Isocenter Position                  DS: ['2.88267761399572', '112.927364043503', '0.0']
+      (300a, 0130) Source to Surface Distance          DS: "918.91342414432"
+      (300a, 0134) Cumulative Meterset Weight          DS: "0.0"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "0.0"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+      (300a, 0112) Control Point Index                 IS: "1"
+      (300a, 0134) Cumulative Meterset Weight          DS: "1"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "1"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+   (300c, 0042)  Referenced Reference Image Sequence   1 item(s) ---- 
+      (0008, 1150) Referenced SOP Class UID            UI: RT Image Storage
+      (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.3.482169467.6176456.20140818133058
+      (300a, 00c8) Reference Image Number              IS: "1"
+      ---------
+   (300c, 006a) Referenced Patient Setup Number     IS: "1"
+   (300c, 00a0) Referenced Tolerance Table Number   IS: "3"
+   (3285, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3285'
+   (3285, 1000) Private tag data                    UN: Array of 66 elements
+   ---------
+   (0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+   (0008, 0080) Institution Name                    LO: 'Seoul National University Hospital'
+   (0008, 1040) Institutional Department Name       LO: 'Radiation Oncolo'
+   (0008, 1090) Manufacturer's Model Name           LO: '600C/D'
+   (0018, 1000) Device Serial Number                LO: '706'
+   (3002, 0050)  Primary Fluence Mode Sequence   1 item(s) ---- 
+      (3002, 0051) Fluence Mode                        CS: 'STANDARD'
+      ---------
+   (300a, 00b2) Treatment Machine Name              SH: '6EX_2013'
+   (300a, 00b3) Primary Dosimeter Unit              CS: 'MU'
+   (300a, 00b4) Source-Axis Distance                DS: "1000"
+   (300a, 00b6)  Beam Limiting Device Sequence   3 item(s) ---- 
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+      (300a, 00ba) Source to Beam Limiting Device Dist DS: "508.610781"
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "60"
+      (300a, 00be) Leaf Position Boundaries            DS: Array of 61 elements
+      ---------
+   (300a, 00c0) Beam Number                         IS: "3"
+   (300a, 00c2) Beam Name                           LO: '02_LAO-2'
+   (300a, 00c4) Beam Type                           CS: 'STATIC'
+   (300a, 00c6) Radiation Type                      CS: 'PHOTON'
+   (300a, 00ce) Treatment Delivery Type             CS: 'TREATMENT'
+   (300a, 00d0) Number of Wedges                    IS: "0"
+   (300a, 00e0) Number of Compensators              IS: "0"
+   (300a, 00ed) Number of Boli                      IS: "0"
+   (300a, 00f0) Number of Blocks                    IS: "0"
+   (300a, 010e) Final Cumulative Meterset Weight    DS: "1"
+   (300a, 0110) Number of Control Points            IS: "2"
+   (300a, 0111)  Control Point Sequence   2 item(s) ---- 
+      (300a, 0112) Control Point Index                 IS: "0"
+      (300a, 0114) Nominal Beam Energy                 DS: "6"
+      (300a, 0115) Dose Rate Set                       DS: "600"
+      (300a, 011a)  Beam Limiting Device Position Sequence   3 item(s) ---- 
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-80', '105']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-95', '70']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: Array of 120 elements
+         ---------
+      (300a, 011e) Gantry Angle                        DS: "85"
+      (300a, 011f) Gantry Rotation Direction           CS: 'NONE'
+      (300a, 0120) Beam Limiting Device Angle          DS: "0.0"
+      (300a, 0121) Beam Limiting Device Rotation Direc CS: 'NONE'
+      (300a, 0122) Patient Support Angle               DS: "0.0"
+      (300a, 0123) Patient Support Rotation Direction  CS: 'NONE'
+      (300a, 0125) Table Top Eccentric Angle           DS: "0.0"
+      (300a, 0126) Table Top Eccentric Rotation Direct CS: 'NONE'
+      (300a, 0128) Table Top Vertical Position         DS: "0.0"
+      (300a, 0129) Table Top Longitudinal Position     DS: "1000"
+      (300a, 012a) Table Top Lateral Position          DS: "0.0"
+      (300a, 012c) Isocenter Position                  DS: ['2.88267761399572', '112.927364043503', '0.0']
+      (300a, 0130) Source to Surface Distance          DS: "918.91342414432"
+      (300a, 0134) Cumulative Meterset Weight          DS: "0.0"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "0.0"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+      (300a, 0112) Control Point Index                 IS: "1"
+      (300a, 0134) Cumulative Meterset Weight          DS: "1"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "1"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+   (300c, 0042)  Referenced Reference Image Sequence   1 item(s) ---- 
+      (0008, 1150) Referenced SOP Class UID            UI: RT Image Storage
+      (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.3.482169467.6168254.20140814101352
+      (300a, 00c8) Reference Image Number              IS: "1"
+      ---------
+   (300c, 006a) Referenced Patient Setup Number     IS: "3"
+   (300c, 00a0) Referenced Tolerance Table Number   IS: "3"
+   (3285, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3285'
+   (3285, 1000) Private tag data                    UN: Array of 66 elements
+   ---------
+   (0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+   (0008, 0080) Institution Name                    LO: 'Seoul National University Hospital'
+   (0008, 1040) Institutional Department Name       LO: 'Radiation Oncolo'
+   (0008, 1090) Manufacturer's Model Name           LO: '600C/D'
+   (0018, 1000) Device Serial Number                LO: '706'
+   (3002, 0050)  Primary Fluence Mode Sequence   1 item(s) ---- 
+      (3002, 0051) Fluence Mode                        CS: 'STANDARD'
+      ---------
+   (300a, 00b2) Treatment Machine Name              SH: '6EX_2013'
+   (300a, 00b3) Primary Dosimeter Unit              CS: 'MU'
+   (300a, 00b4) Source-Axis Distance                DS: "1000"
+   (300a, 00b6)  Beam Limiting Device Sequence   3 item(s) ---- 
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+      (300a, 00ba) Source to Beam Limiting Device Dist DS: "508.610781"
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "60"
+      (300a, 00be) Leaf Position Boundaries            DS: Array of 61 elements
+      ---------
+   (300a, 00c0) Beam Number                         IS: "5"
+   (300a, 00c2) Beam Name                           LO: '03_LAO-3'
+   (300a, 00c4) Beam Type                           CS: 'STATIC'
+   (300a, 00c6) Radiation Type                      CS: 'PHOTON'
+   (300a, 00ce) Treatment Delivery Type             CS: 'TREATMENT'
+   (300a, 00d0) Number of Wedges                    IS: "0"
+   (300a, 00e0) Number of Compensators              IS: "0"
+   (300a, 00ed) Number of Boli                      IS: "0"
+   (300a, 00f0) Number of Blocks                    IS: "0"
+   (300a, 010e) Final Cumulative Meterset Weight    DS: "1"
+   (300a, 0110) Number of Control Points            IS: "2"
+   (300a, 0111)  Control Point Sequence   2 item(s) ---- 
+      (300a, 0112) Control Point Index                 IS: "0"
+      (300a, 0114) Nominal Beam Energy                 DS: "6"
+      (300a, 0115) Dose Rate Set                       DS: "600"
+      (300a, 011a)  Beam Limiting Device Position Sequence   3 item(s) ---- 
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-64', '105']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-95', '70']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: Array of 120 elements
+         ---------
+      (300a, 011e) Gantry Angle                        DS: "85"
+      (300a, 011f) Gantry Rotation Direction           CS: 'NONE'
+      (300a, 0120) Beam Limiting Device Angle          DS: "0.0"
+      (300a, 0121) Beam Limiting Device Rotation Direc CS: 'NONE'
+      (300a, 0122) Patient Support Angle               DS: "0.0"
+      (300a, 0123) Patient Support Rotation Direction  CS: 'NONE'
+      (300a, 0125) Table Top Eccentric Angle           DS: "0.0"
+      (300a, 0126) Table Top Eccentric Rotation Direct CS: 'NONE'
+      (300a, 0128) Table Top Vertical Position         DS: "0.0"
+      (300a, 0129) Table Top Longitudinal Position     DS: "1000"
+      (300a, 012a) Table Top Lateral Position          DS: "0.0"
+      (300a, 012c) Isocenter Position                  DS: ['2.88267761399572', '112.927364043503', '0.0']
+      (300a, 0130) Source to Surface Distance          DS: "918.91342414432"
+      (300a, 0134) Cumulative Meterset Weight          DS: "0.0"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "0.0"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+      (300a, 0112) Control Point Index                 IS: "1"
+      (300a, 0134) Cumulative Meterset Weight          DS: "1"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "1"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+   (300c, 0042)  Referenced Reference Image Sequence   1 item(s) ---- 
+      (0008, 1150) Referenced SOP Class UID            UI: RT Image Storage
+      (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.3.482169467.6168256.20140814101352
+      (300a, 00c8) Reference Image Number              IS: "1"
+      ---------
+   (300c, 006a) Referenced Patient Setup Number     IS: "5"
+   (300c, 00a0) Referenced Tolerance Table Number   IS: "3"
+   (3285, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3285'
+   (3285, 1000) Private tag data                    UN: Array of 66 elements
+   ---------
+   (0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+   (0008, 0080) Institution Name                    LO: 'Seoul National University Hospital'
+   (0008, 1040) Institutional Department Name       LO: 'Radiation Oncolo'
+   (0008, 1090) Manufacturer's Model Name           LO: '600C/D'
+   (0018, 1000) Device Serial Number                LO: '706'
+   (3002, 0050)  Primary Fluence Mode Sequence   1 item(s) ---- 
+      (3002, 0051) Fluence Mode                        CS: 'STANDARD'
+      ---------
+   (300a, 00b2) Treatment Machine Name              SH: '6EX_2013'
+   (300a, 00b3) Primary Dosimeter Unit              CS: 'MU'
+   (300a, 00b4) Source-Axis Distance                DS: "1000"
+   (300a, 00b6)  Beam Limiting Device Sequence   3 item(s) ---- 
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'X'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'Y'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+      (300a, 00ba) Source to Beam Limiting Device Dist DS: "508.610781"
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "60"
+      (300a, 00be) Leaf Position Boundaries            DS: Array of 61 elements
+      ---------
+   (300a, 00c0) Beam Number                         IS: "2"
+   (300a, 00c2) Beam Name                           LO: '04_RAO-1'
+   (300a, 00c4) Beam Type                           CS: 'STATIC'
+   (300a, 00c6) Radiation Type                      CS: 'PHOTON'
+   (300a, 00ce) Treatment Delivery Type             CS: 'TREATMENT'
+   (300a, 00d0) Number of Wedges                    IS: "0"
+   (300a, 00e0) Number of Compensators              IS: "0"
+   (300a, 00ed) Number of Boli                      IS: "0"
+   (300a, 00f0) Number of Blocks                    IS: "0"
+   (300a, 010e) Final Cumulative Meterset Weight    DS: "1"
+   (300a, 0110) Number of Control Points            IS: "2"
+   (300a, 0111)  Control Point Sequence   2 item(s) ---- 
+      (300a, 0112) Control Point Index                 IS: "0"
+      (300a, 0114) Nominal Beam Energy                 DS: "6"
+      (300a, 0115) Dose Rate Set                       DS: "600"
+      (300a, 011a)  Beam Limiting Device Position Sequence   3 item(s) ---- 
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'X'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-105', '105']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'Y'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-95', '95']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: Array of 120 elements
+         ---------
+      (300a, 011e) Gantry Angle                        DS: "275"
+      (300a, 011f) Gantry Rotation Direction           CS: 'NONE'
+      (300a, 0120) Beam Limiting Device Angle          DS: "0.0"
+      (300a, 0121) Beam Limiting Device Rotation Direc CS: 'NONE'
+      (300a, 0122) Patient Support Angle               DS: "0.0"
+      (300a, 0123) Patient Support Rotation Direction  CS: 'NONE'
+      (300a, 0125) Table Top Eccentric Angle           DS: "0.0"
+      (300a, 0126) Table Top Eccentric Rotation Direct CS: 'NONE'
+      (300a, 0128) Table Top Vertical Position         DS: "0.0"
+      (300a, 0129) Table Top Longitudinal Position     DS: "1000"
+      (300a, 012a) Table Top Lateral Position          DS: "0.0"
+      (300a, 012c) Isocenter Position                  DS: ['2.88267761399572', '112.927364043503', '0.0']
+      (300a, 0130) Source to Surface Distance          DS: "927.263765743681"
+      (300a, 0134) Cumulative Meterset Weight          DS: "0.0"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "0.0"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+      (300a, 0112) Control Point Index                 IS: "1"
+      (300a, 0134) Cumulative Meterset Weight          DS: "1"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "1"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+   (300c, 0042)  Referenced Reference Image Sequence   1 item(s) ---- 
+      (0008, 1150) Referenced SOP Class UID            UI: RT Image Storage
+      (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.3.482169467.6176455.20140818133058
+      (300a, 00c8) Reference Image Number              IS: "1"
+      ---------
+   (300c, 006a) Referenced Patient Setup Number     IS: "2"
+   (300c, 00a0) Referenced Tolerance Table Number   IS: "3"
+   (3285, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3285'
+   (3285, 1000) Private tag data                    UN: Array of 66 elements
+   ---------
+   (0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+   (0008, 0080) Institution Name                    LO: 'Seoul National University Hospital'
+   (0008, 1040) Institutional Department Name       LO: 'Radiation Oncolo'
+   (0008, 1090) Manufacturer's Model Name           LO: '600C/D'
+   (0018, 1000) Device Serial Number                LO: '706'
+   (3002, 0050)  Primary Fluence Mode Sequence   1 item(s) ---- 
+      (3002, 0051) Fluence Mode                        CS: 'STANDARD'
+      ---------
+   (300a, 00b2) Treatment Machine Name              SH: '6EX_2013'
+   (300a, 00b3) Primary Dosimeter Unit              CS: 'MU'
+   (300a, 00b4) Source-Axis Distance                DS: "1000"
+   (300a, 00b6)  Beam Limiting Device Sequence   3 item(s) ---- 
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+      (300a, 00ba) Source to Beam Limiting Device Dist DS: "508.610781"
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "60"
+      (300a, 00be) Leaf Position Boundaries            DS: Array of 61 elements
+      ---------
+   (300a, 00c0) Beam Number                         IS: "4"
+   (300a, 00c2) Beam Name                           LO: '05_RAO-2'
+   (300a, 00c4) Beam Type                           CS: 'STATIC'
+   (300a, 00c6) Radiation Type                      CS: 'PHOTON'
+   (300a, 00ce) Treatment Delivery Type             CS: 'TREATMENT'
+   (300a, 00d0) Number of Wedges                    IS: "0"
+   (300a, 00e0) Number of Compensators              IS: "0"
+   (300a, 00ed) Number of Boli                      IS: "0"
+   (300a, 00f0) Number of Blocks                    IS: "0"
+   (300a, 010e) Final Cumulative Meterset Weight    DS: "1"
+   (300a, 0110) Number of Control Points            IS: "2"
+   (300a, 0111)  Control Point Sequence   2 item(s) ---- 
+      (300a, 0112) Control Point Index                 IS: "0"
+      (300a, 0114) Nominal Beam Energy                 DS: "6"
+      (300a, 0115) Dose Rate Set                       DS: "600"
+      (300a, 011a)  Beam Limiting Device Position Sequence   3 item(s) ---- 
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-105', '82']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-95', '70']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: Array of 120 elements
+         ---------
+      (300a, 011e) Gantry Angle                        DS: "275"
+      (300a, 011f) Gantry Rotation Direction           CS: 'NONE'
+      (300a, 0120) Beam Limiting Device Angle          DS: "0.0"
+      (300a, 0121) Beam Limiting Device Rotation Direc CS: 'NONE'
+      (300a, 0122) Patient Support Angle               DS: "0.0"
+      (300a, 0123) Patient Support Rotation Direction  CS: 'NONE'
+      (300a, 0125) Table Top Eccentric Angle           DS: "0.0"
+      (300a, 0126) Table Top Eccentric Rotation Direct CS: 'NONE'
+      (300a, 0128) Table Top Vertical Position         DS: "0.0"
+      (300a, 0129) Table Top Longitudinal Position     DS: "1000"
+      (300a, 012a) Table Top Lateral Position          DS: "0.0"
+      (300a, 012c) Isocenter Position                  DS: ['2.88267761399572', '112.927364043503', '0.0']
+      (300a, 0130) Source to Surface Distance          DS: "927.263765743681"
+      (300a, 0134) Cumulative Meterset Weight          DS: "0.0"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "0.0"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+      (300a, 0112) Control Point Index                 IS: "1"
+      (300a, 0134) Cumulative Meterset Weight          DS: "1"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "1"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+   (300c, 0042)  Referenced Reference Image Sequence   1 item(s) ---- 
+      (0008, 1150) Referenced SOP Class UID            UI: RT Image Storage
+      (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.3.482169467.6176458.20140818133058
+      (300a, 00c8) Reference Image Number              IS: "1"
+      ---------
+   (300c, 006a) Referenced Patient Setup Number     IS: "4"
+   (300c, 00a0) Referenced Tolerance Table Number   IS: "3"
+   (3285, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3285'
+   (3285, 1000) Private tag data                    UN: Array of 66 elements
+   ---------
+   (0008, 0070) Manufacturer                        LO: 'Varian Medical Systems'
+   (0008, 0080) Institution Name                    LO: 'Seoul National University Hospital'
+   (0008, 1040) Institutional Department Name       LO: 'Radiation Oncolo'
+   (0008, 1090) Manufacturer's Model Name           LO: '600C/D'
+   (0018, 1000) Device Serial Number                LO: '706'
+   (3002, 0050)  Primary Fluence Mode Sequence   1 item(s) ---- 
+      (3002, 0051) Fluence Mode                        CS: 'STANDARD'
+      ---------
+   (300a, 00b2) Treatment Machine Name              SH: '6EX_2013'
+   (300a, 00b3) Primary Dosimeter Unit              CS: 'MU'
+   (300a, 00b4) Source-Axis Distance                DS: "1000"
+   (300a, 00b6)  Beam Limiting Device Sequence   3 item(s) ---- 
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "1"
+      ---------
+      (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+      (300a, 00ba) Source to Beam Limiting Device Dist DS: "508.610781"
+      (300a, 00bc) Number of Leaf/Jaw Pairs            IS: "60"
+      (300a, 00be) Leaf Position Boundaries            DS: Array of 61 elements
+      ---------
+   (300a, 00c0) Beam Number                         IS: "6"
+   (300a, 00c2) Beam Name                           LO: '06_RAO-3'
+   (300a, 00c4) Beam Type                           CS: 'STATIC'
+   (300a, 00c6) Radiation Type                      CS: 'PHOTON'
+   (300a, 00ce) Treatment Delivery Type             CS: 'TREATMENT'
+   (300a, 00d0) Number of Wedges                    IS: "0"
+   (300a, 00e0) Number of Compensators              IS: "0"
+   (300a, 00ed) Number of Boli                      IS: "0"
+   (300a, 00f0) Number of Blocks                    IS: "0"
+   (300a, 010e) Final Cumulative Meterset Weight    DS: "1"
+   (300a, 0110) Number of Control Points            IS: "2"
+   (300a, 0111)  Control Point Sequence   2 item(s) ---- 
+      (300a, 0112) Control Point Index                 IS: "0"
+      (300a, 0114) Nominal Beam Energy                 DS: "6"
+      (300a, 0115) Dose Rate Set                       DS: "600"
+      (300a, 011a)  Beam Limiting Device Position Sequence   3 item(s) ---- 
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-105', '65']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'ASYMY'
+         (300a, 011c) Leaf/Jaw Positions                  DS: ['-95', '70']
+         ---------
+         (300a, 00b8) RT Beam Limiting Device Type        CS: 'MLCX'
+         (300a, 011c) Leaf/Jaw Positions                  DS: Array of 120 elements
+         ---------
+      (300a, 011e) Gantry Angle                        DS: "275"
+      (300a, 011f) Gantry Rotation Direction           CS: 'NONE'
+      (300a, 0120) Beam Limiting Device Angle          DS: "0.0"
+      (300a, 0121) Beam Limiting Device Rotation Direc CS: 'NONE'
+      (300a, 0122) Patient Support Angle               DS: "0.0"
+      (300a, 0123) Patient Support Rotation Direction  CS: 'NONE'
+      (300a, 0125) Table Top Eccentric Angle           DS: "0.0"
+      (300a, 0126) Table Top Eccentric Rotation Direct CS: 'NONE'
+      (300a, 0128) Table Top Vertical Position         DS: "0.0"
+      (300a, 0129) Table Top Longitudinal Position     DS: "1000"
+      (300a, 012a) Table Top Lateral Position          DS: "0.0"
+      (300a, 012c) Isocenter Position                  DS: ['2.88267761399572', '112.927364043503', '0.0']
+      (300a, 0130) Source to Surface Distance          DS: "927.263765743681"
+      (300a, 0134) Cumulative Meterset Weight          DS: "0.0"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "0.0"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+      (300a, 0112) Control Point Index                 IS: "1"
+      (300a, 0134) Cumulative Meterset Weight          DS: "1"
+      (300c, 0050)  Referenced Dose Reference Sequence   1 item(s) ---- 
+         (300a, 010c) Cumulative Dose Reference Coefficie DS: "1"
+         (300c, 0051) Referenced Dose Reference Number    IS: "1"
+         ---------
+      ---------
+   (300c, 0042)  Referenced Reference Image Sequence   1 item(s) ---- 
+      (0008, 1150) Referenced SOP Class UID            UI: RT Image Storage
+      (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.3.482169467.6176457.20140818133058
+      (300a, 00c8) Reference Image Number              IS: "1"
+      ---------
+   (300c, 006a) Referenced Patient Setup Number     IS: "6"
+   (300c, 00a0) Referenced Tolerance Table Number   IS: "3"
+   (3285, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3285'
+   (3285, 1000) Private tag data                    UN: Array of 66 elements
+   ---------
+(300a, 0180)  Patient Setup Sequence   6 item(s) ---- 
+   (0018, 5100) Patient Position                    CS: 'HFS'
+   (300a, 0182) Patient Setup Number                IS: "1"
+   (300a, 01b0) Setup Technique                     CS: 'ISOCENTRIC'
+   ---------
+   (0018, 5100) Patient Position                    CS: 'HFS'
+   (300a, 0182) Patient Setup Number                IS: "2"
+   (300a, 01b0) Setup Technique                     CS: 'ISOCENTRIC'
+   ---------
+   (0018, 5100) Patient Position                    CS: 'HFS'
+   (300a, 0182) Patient Setup Number                IS: "3"
+   (300a, 01b0) Setup Technique                     CS: 'ISOCENTRIC'
+   ---------
+   (0018, 5100) Patient Position                    CS: 'HFS'
+   (300a, 0182) Patient Setup Number                IS: "4"
+   (300a, 01b0) Setup Technique                     CS: 'ISOCENTRIC'
+   ---------
+   (0018, 5100) Patient Position                    CS: 'HFS'
+   (300a, 0182) Patient Setup Number                IS: "5"
+   (300a, 01b0) Setup Technique                     CS: 'ISOCENTRIC'
+   ---------
+   (0018, 5100) Patient Position                    CS: 'HFS'
+   (300a, 0182) Patient Setup Number                IS: "6"
+   (300a, 01b0) Setup Technique                     CS: 'ISOCENTRIC'
+   ---------
+(300c, 0060)  Referenced Structure Set Sequence   1 item(s) ---- 
+   (0008, 1150) Referenced SOP Class UID            UI: RT Structure Set Storage
+   (0008, 1155) Referenced SOP Instance UID         UI: 1.2.246.352.71.4.482169467.88444.20140818133058
+   ---------
+(300e, 0002) Approval Status                     CS: 'UNAPPROVED'
+(3253, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3253'
+(3253, 1000) [XML stream.]                       UN: Array of 2338 elements
+(3253, 1001) [Data length of the XML stream]     UN: b'2338'
+(3253, 1002) [Extended Interface Format tag]     UN: b'ExtendedIF'
+(3287, 0010) Private Creator                     LO: 'Varian Medical Systems VISION 3287'
+(3287, 1000) Private tag data                    UN: Array of 100 elements
