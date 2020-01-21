@@ -163,6 +163,11 @@ def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
     dataset_dose.ReferencedRTPlanSequence[0].ReferencedBeamSequence = dataset_plan.BeamSequence
     # dataset_plan.BeamNumber = dataset_plan.BeamSequence[0].BeamNumber
 
+    block = dataset_dose.private_block(0x2819, "BNCTCOMPONENT", create=True)
+    block.add_new(0x00, "CS", "BORONDOSE")
+    block.add_new(0x01, "CS", "NORMAL")
+
+
     return dataset_dose
 
 
