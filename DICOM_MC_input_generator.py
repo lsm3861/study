@@ -134,20 +134,17 @@ def make3D():
     return img3D
 
 def hu2mcnp_mat():
-    hu3D = make3D()
+    mat = make3D().copy()
 
     # 원본 3D array를 유지하면서, 각각의 material array로 복사 후, 각 material array에 threshold를 이용해서
     # material index의 정보를 가진 마스크를 만든뒤 모두 합치기
-    material_num = 3
-    #mat1
-    mat = []
-    for i in range(1, material_num):
-        mat[i] =[]
-        mat
 
-    for i in range(1, material_num):
-        mat[[ (10 < mat1) & ( mat1< 100) ] = 1
-
+    #mat = hu3D.copy()
+    mat[(1 <= mat) & (mat < 100)] = 1
+    mat[(100 <= mat) & (mat < 200)] = 2
+    mat[(200 <= mat) & (mat < 300)] = 3
+    mat[(300 <= mat) & (mat < 400)] = 4
+    mat[(400 <= mat)] = 5
 
     #Hounsfield Unit from CT images to Material Index of MCNP
 
