@@ -16,7 +16,6 @@ def ct_pixel_changer(CT_image, output_CT):
     pixel_air = np.zeros_like(ds.pixel_array).copy()
     pixel_water = np.ones_like(ds.pixel_array).copy()*1024
 
-    # TODO dose normalization 고민해봐야함.
     # Pixel data 교환.
     #array_dose = np.uint32(pixel_value)
     ds.PixelData = pixel_water.tobytes()

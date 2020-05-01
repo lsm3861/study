@@ -1,53 +1,65 @@
 import sys
 import os
+import numpy as np
+import pydicom as dicom
 
-if len(sys.argv) == 1:
-    print("python Au1024_68.py input_file output_file")
-    sys.exit()
+def rt_dose_changer(sample_rt_dose, PHITS_DOSE_PATH, output_rt_dose):
 
-f1 = open(sys.argv[1], 'r')
-f2 = open(sys.argv[2], 'w')
+    array_dose = np.array(get_dose(PHITS_DOSE_PATH))
+    array_dose = np.reshape(array_dose, (55, 128, 128))
 
-flux2 = []
-err2 = []
+    ds = dicom.dcmread(sample_rt_dose)
 
-for x in range(1024):
-    flux2.append(0)
-    err2.append(0)
+    # TODO dose normalization 고민해봐야함.
+    # Pixel data 교환.
+    array_dose = np.float32(array_dose)
+    #ds.DoseGridScaling = np.min(array_dose)
+    #array_dose = array_dose / np.min(array_dose)  # dose 수치 조절.
+    #array_dose = np.uint32(array_dose)
+    ds.PixelData = array_dose.tobytes()
 
-while 1:
-    cur_line = f1.readline().split()
+    ds.Rows, ds.Columns = array_dose.shape[2], array_dose.shape[1]
+    ds.NumberOfFrames = array_dose.shape[0]
+    ds.GridFrameOffsetVector = []
+    for i in range(ds.NumberOfFrames):
+        ds.GridFrameOffsetVector.append(i * 3)
+    if ds.DVHSequence:
+        del ds.DVHSequence
 
-    if f1.tell() == os.fstat(f1.fileno()).st_size:
-        break
+    # only for the observation
+    ds.PixelSpacing = [ds.PixelSpacing[0]*4, ds.PixelSpacing[1]*4]
 
-    if len(cur_line) == 2:
-        if cur_line[0] == 'cell':
-            next_line = f1.readline().split()
+    dicom.filewriter.dcmwrite(output_rt_dose, ds, write_like_original=True)
 
-            if len(next_line) > 0 and next_line[0] == 'energy':
-                cur_pos = int(cur_line[1]) - 1
+def get_dose(PHITS_DOSE_DATA):
+    f1 = open(PHITS_DOSE_DATA, 'r')
+    dose = []
 
-                while 1:
-                    data_line = f1.readline().split()
+    while 1:
+        cur_line = f1.readline().split()
+        if f1.tell() == os.fstat(f1.fileno()).st_size:
+            break
+        if len(cur_line) > 0 and cur_line[0] == "#" and cur_line[1] == "no." and cur_line[2] == "=":
+            # print(cur_line[3])
+            for a in range(22):
+                next_line = f1.readline().split()
+                #print(next_line)
+            for b in range(1639):
+                cur_line = f1.readline().split()
+                for c in range(len(cur_line)):
+                    dose.append(cur_line[c])
+            # print(len(dose))
+    f1.close()
+    return dose
 
-                    if data_line[0] == '6.8000E-02':
-                        flux2[cur_pos] = data_line[1]
-                        err2[cur_pos] = data_line[2]
+def main():
+    PHITS_DOSE_PATH = "./PHITS2DICOM/Boron_nuc_depth.out"
+    RD_SAMPLE_PATH = "./Brain_CT/42860819/C1/RD.1.2.246.352.71.7.482169467.884472.20140818115809.dcm"
+    RD_OUTPUT_PATH = "./PHITS2DICOM/RT_dose_changed.dcm"
 
-                    if data_line[0] == 'total':
-                        break
+    rt_dose_changer(RD_SAMPLE_PATH,PHITS_DOSE_PATH,RD_OUTPUT_PATH)
+    array_dose = np.array(get_dose("./PHITS2DICOM/Boron_nuc_depth.out"))
+    array_dose = np.reshape(array_dose, (55, 128, 128))
 
-for x in range(1024):
-    z = str(flux2)
-    q = str(err2)
-
-f2.write(z)
-f2.write('\t')
-f2.write('\t')
-f2.write(q)
-f2.write('\n')
-
-f1.close
-f2.close
-sys.exit()
+if __name__ == "__main__":
+    main()
