@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 
+'''
 x_data = [1.0, 2.0, 3.0]
 y_data = [2.0, 4.0, 6.0]
 
@@ -35,3 +36,10 @@ for epoch in range(300):
         l = loss (x_val, y_val)
     print("progress: ", epoch+1, "trials", "w1=", w1, "w2=", w2, "loss=", l)
 print("predic (after training)", "4 hours", forward(4))
+'''
+
+t = np.array([0., 1., 2., 3., 4., 5., 6.])
+print(t)
+
+print('Rank  of t: ', t.ndim)
+print('Shape of t: ', t.shape)
