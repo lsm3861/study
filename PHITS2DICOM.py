@@ -51,11 +51,12 @@ def rt_dose_changer(sample_rt_dose, sample_ct, PHITS_DOSE_PATH, output_rt_dose):
 
     #꼭 unit32로 바꾸어야만 들어가나..? Pixel Data를 바로 바꾸면 안되나? 도전!
     #ds.DoseGridScaling = np.min(array_dose[array_dose > 0])
-    #ds.DoseGridScaling = "1E-6"
-    ds.DoseGridScaling = array_dose.max()
+    ds.DoseGridScaling = "1"
+    #ds.DoseGridScaling = array_dose.max()
     # print(ds.DoseGridScaling)
     #array_dose = array_dose / ds.DoseGridScaling  # dose 수치 조절.
     #array_dose = np.uint32(array_dose)
+    array_dose[array_dose < np.max(array_dose) * 0.00001] = 0
     ds.PixelData = array_dose.tobytes()
 
     # test = np.frombuffer(ds.PixelData, dtype=np.float32)
@@ -169,9 +170,12 @@ def rt_dose_creator(sample_ct, sample_rt_plan, PHITS_DOSE_PATH, output_rt_dose):
     #array_dose = np.float32(array_dose)
     #ds_dose.DoseGridScaling = np.max(array_dose)
     ds_dose.DoseGridScaling = "1"
+
+
     #array_dose = array_dose / np.min(array_dose)  # dose 수치 조절.
     #array_dose = np.uint32(array_dose)
 
+    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0
     ds_dose.PixelData = array_dose.tobytes()
 
     #ds_dose.pixel_array = array_dose
@@ -293,10 +297,10 @@ def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
 
 
 def main():
-    PHITS_DOSE_PATH = "/Users/sangmin/PHITS2DICOM_test/BNCT_dose.out"
+    PHITS_DOSE_PATH = "./PHITS2DICOM/BNCT_dose.out"
     RD_SAMPLE_PATH = "./Brain_CT/44254984/C1/RD.1.2.246.352.71.7.482169467.721183.20140127155500.dcm"
     CT_SAMPLE_PATH = "./Brain_CT/44254984/C1/CT.1.2.840.113704.1.111.428.1390280577.191.dcm"
-    RD_OUTPUT_PATH = "/Users/sangmin/PHITS2DICOM_test/Boron.dcm"
+    RD_OUTPUT_PATH = "./PHITS2DICOM/Boron.dcm"
     RP_SAMPLE_PATH = "./Brain_CT/44254984/C1/RP.1.2.246.352.71.5.482169467.300863.20140127145445.dcm"
     PHITS_VOXEL_INPUT = "./PHITS2DICOM/voxel.inp"
 
