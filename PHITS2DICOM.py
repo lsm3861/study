@@ -3,6 +3,7 @@ import os
 import numpy as np
 import pydicom as dicom
 import datetime
+import mcpl
 
 def rt_dose_changer(sample_rt_dose, sample_ct, PHITS_DOSE_PATH, output_rt_dose):
 
@@ -50,13 +51,12 @@ def rt_dose_changer(sample_rt_dose, sample_ct, PHITS_DOSE_PATH, output_rt_dose):
     #array_dose = array_dose * Q_value
 
     #꼭 unit32로 바꾸어야만 들어가나..? Pixel Data를 바로 바꾸면 안되나? 도전!
-    #ds.DoseGridScaling = np.min(array_dose[array_dose > 0])
-    ds.DoseGridScaling = "1"
-    #ds.DoseGridScaling = array_dose.max()
-    # print(ds.DoseGridScaling)
-    #array_dose = array_dose / ds.DoseGridScaling  # dose 수치 조절.
-    #array_dose = np.uint32(array_dose)
-    array_dose[array_dose < np.max(array_dose) * 0.00001] = 0
+
+    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0  # Erase tiny values.
+    ds.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
+    array_dose = array_dose/np.min(array_dose[array_dose > 0])   # Range shifting
+    array_dose = np.uint32(array_dose)                           # float to integer
+
     ds.PixelData = array_dose.tobytes()
 
     # test = np.frombuffer(ds.PixelData, dtype=np.float32)
@@ -89,9 +89,9 @@ def rt_dose_changer(sample_rt_dose, sample_ct, PHITS_DOSE_PATH, output_rt_dose):
     '''
 
 
-def get_dose(PHITS_DOSE_DATA):
+def getNucDose(DATA_PATH):
     # Getting dose from PHITS output file.
-    f1 = open(PHITS_DOSE_DATA, 'r')
+    f1 = open(DATA_PATH, 'r')
     dose = []
     #TODO Photon, neutron dose case should be added
     while 1:
@@ -105,6 +105,38 @@ def get_dose(PHITS_DOSE_DATA):
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
             # Skip 20 lines
             for a in range(20):
+                next_line = f1.readline().split()
+                #print(next_line)
+            # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
+            # Dose reading for 1639 lines.
+            for b in range(1639):
+                cur_line = f1.readline().split()
+                for c in range(len(cur_line)):
+                    dose.append(cur_line[c]) # Dose stacking.
+            # print(len(dose))
+        #elif len(cur_line) > 0 and cur_line[0] == "#" and cur_line[1] == "no." and cur_line[2] == "=" and cur_line[12] == ""
+    f1.close()
+    #print(len(dose))
+    return dose
+
+def getGDose(DATA_PATH):
+    # Getting dose from PHITS output file.
+    f1 = open(DATA_PATH, 'r')
+    dose = []
+    #TODO Photon, neutron dose case should be added
+    while 1:
+        cur_line = f1.readline().split()
+
+        # End of the dose file.
+        if len(cur_line) > 0 and cur_line[0] == "#" and cur_line[1] == "rijklst=":
+            #print(cur_line)
+            break
+
+        if len(cur_line) > 6 and cur_line[0] == "'no." and cur_line[len(cur_line)-2] == "photon":
+            #print(cur_line)
+            # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
+            # Skip 20 lines
+            for a in range(18):
                 next_line = f1.readline().split()
                 #print(next_line)
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
@@ -135,31 +167,43 @@ def get_voxel(PHITS_VOXEL_INPUT):
 
     return voxel_index
 
-def rt_dose_creator(sample_ct, sample_rt_plan, PHITS_DOSE_PATH, output_rt_dose):
+def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
     ds_ct = dicom.dcmread(sample_ct)
     ds_plan = dicom.dcmread(sample_rt_plan)
 
-    array_dose = list(get_dose(PHITS_DOSE_PATH))
+    array_dose = list(getNucDose(DIR_PATH+"BNCT_dose.out"))
+
+    Gamma_dose = list(getGDose(DIR_PATH+"photon_dose_depth.out"))
+    # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
+    Gamma_dose = np.array(Gamma_dose[:901120])
+    Gamma_dose = np.reshape(Gamma_dose, (55, 128, 128))
+    Gamma_dose = np.flip(Gamma_dose, axis=1)
+    Gamma_dose = np.float32(Gamma_dose)
+
+    # MeV/cm3 to Gy, density: 1.094E-3 kg/cm3, 1 MeV = 1.60218E-13
+    Gamma_dose = (Gamma_dose / 0.001094) * 1.60218E-13
+    print('Gamma dose max: ', Gamma_dose.max())
+
     # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
     Boron_dose = np.array(array_dose[:901120])
     Boron_dose = np.reshape(Boron_dose, (55, 128, 128))
     Boron_dose = np.flip(Boron_dose, axis=1)
     Boron_dose = np.float32(Boron_dose)
-    print(Boron_dose.max())
+    print('Boron dose max: ', Boron_dose.max())
     Nitrogen_dose = np.array(array_dose[901120:1802240])
     Nitrogen_dose = np.reshape(Nitrogen_dose, (55, 128, 128))
     Nitrogen_dose = np.flip(Nitrogen_dose, axis=1)
     Nitrogen_dose = np.float32(Nitrogen_dose)
-    print(Nitrogen_dose.max())
+    print('Nitrogen dose max: ', Nitrogen_dose.max())
     Hydrogen_dose = np.array(array_dose[1802240:])
     Hydrogen_dose = np.reshape(Hydrogen_dose, (55, 128, 128))
     Hydrogen_dose = np.flip(Hydrogen_dose, axis=1)
 
     Hydrogen_dose = np.float32(Hydrogen_dose)
-    print(Hydrogen_dose.max())
+    print('Hydrogen dose max: ', Hydrogen_dose.max())
 
     ################# MANUAL ##############
-    array_dose = Boron_dose
+    #array_dose = Boron_dose
 
     ds_dose = rt_dose_header_setup(ds_ct, ds_plan, output_rt_dose)
 
@@ -169,21 +213,13 @@ def rt_dose_creator(sample_ct, sample_rt_plan, PHITS_DOSE_PATH, output_rt_dose):
     # Pixel data 교환.
     #array_dose = np.float32(array_dose)
     #ds_dose.DoseGridScaling = np.max(array_dose)
-    ds_dose.DoseGridScaling = "1"
-
-
-    #array_dose = array_dose / np.min(array_dose)  # dose 수치 조절.
-    #array_dose = np.uint32(array_dose)
-
-    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0
-    ds_dose.PixelData = array_dose.tobytes()
 
     #ds_dose.pixel_array = array_dose
 
     # dicom.filewriter.dcmwrite(output_rt_dose, ds_dose, write_like_original=True)
 
-    ds_dose.Rows, ds_dose.Columns = array_dose.shape[2], array_dose.shape[1]
-    ds_dose.NumberOfFrames = array_dose.shape[0]
+    ds_dose.Rows, ds_dose.Columns = Boron_dose.shape[2], Boron_dose.shape[1]
+    ds_dose.NumberOfFrames = Boron_dose.shape[0]
 
     ds_dose.GridFrameOffsetVector = []
     for i in range(ds_dose.NumberOfFrames):
@@ -202,8 +238,48 @@ def rt_dose_creator(sample_ct, sample_rt_plan, PHITS_DOSE_PATH, output_rt_dose):
 
     ds_dose.is_little_endian = True # True is default
     ds_dose.is_implicit_VR = False # True is default
-    ds_dose.save_as(output_rt_dose)
 
+    array_dose = Boron_dose
+    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0  # Erase small values.
+    ds_dose.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
+    array_dose = array_dose/np.min(array_dose[array_dose > 0])   # Range shifting
+    array_dose = np.uint32(array_dose)                           # float to integer
+    ds_dose.PixelData = array_dose.tobytes()
+    ds_dose.save_as(DIR_PATH+"Boron.dcm")
+
+    array_dose = Nitrogen_dose
+    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0  # Erase tiny values.
+    ds_dose.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
+    array_dose = array_dose/np.min(array_dose[array_dose > 0])   # Range shifting
+    array_dose = np.uint32(array_dose)                           # float to integer
+    ds_dose.PixelData = array_dose.tobytes()
+    ds_dose.save_as(DIR_PATH+"Nitrogen.dcm")
+
+    array_dose = Hydrogen_dose
+    array_dose[array_dose < np.max(array_dose) * 0.00001] = 0  # Erase tiny values.
+    ds_dose.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
+    array_dose = array_dose / np.min(array_dose[array_dose > 0])  # Range shifting
+    array_dose = np.uint32(array_dose)  # float to integer
+    ds_dose.PixelData = array_dose.tobytes()
+    ds_dose.save_as(DIR_PATH+"Hydrogen.dcm")
+
+    array_dose = Gamma_dose
+    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0  # Erase small values.
+    ds_dose.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
+    array_dose = array_dose/np.min(array_dose[array_dose > 0])   # Range shifting
+    array_dose = np.uint32(array_dose)                           # float to integer
+    ds_dose.PixelData = array_dose.tobytes()
+    ds_dose.save_as(DIR_PATH+"Gamma.dcm")
+
+    array_dose = Boron_dose + Nitrogen_dose + Hydrogen_dose + Gamma_dose
+    print('Total dose max: ', array_dose.max())
+    #print(array_dose.shape)
+    array_dose[array_dose < np.max(array_dose) * 0.00001] = 0  # Erase tiny values.
+    ds_dose.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
+    array_dose = array_dose / np.min(array_dose[array_dose > 0])  # Range shifting
+    array_dose = np.uint32(array_dose)  # float to integer
+    ds_dose.PixelData = array_dose.tobytes()
+    ds_dose.save_as(DIR_PATH+"Total.dcm")
 
 def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
     # Header setup
@@ -297,12 +373,13 @@ def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
 
 
 def main():
-    PHITS_DOSE_PATH = "./PHITS2DICOM/BNCT_dose.out"
+    PHITS_DOSE_PATH = "/Users/sangmin/BNCT_dose.out"
     RD_SAMPLE_PATH = "./Brain_CT/44254984/C1/RD.1.2.246.352.71.7.482169467.721183.20140127155500.dcm"
     CT_SAMPLE_PATH = "./Brain_CT/44254984/C1/CT.1.2.840.113704.1.111.428.1390280577.191.dcm"
-    RD_OUTPUT_PATH = "./PHITS2DICOM/Boron.dcm"
+    RD_OUTPUT_PATH = "/Users/sangmin/Boron.dcm"
     RP_SAMPLE_PATH = "./Brain_CT/44254984/C1/RP.1.2.246.352.71.5.482169467.300863.20140127145445.dcm"
     PHITS_VOXEL_INPUT = "./PHITS2DICOM/voxel.inp"
+    DIR_PATH = "/Users/sangmin/Downloads/05/"
 
     '''
     for a in range(10):
@@ -312,7 +389,7 @@ def main():
     '''
 
     #rt_dose_changer(RD_SAMPLE_PATH,CT_SAMPLE_PATH, PHITS_DOSE_PATH, RD_OUTPUT_PATH)
-    rt_dose_creator(CT_SAMPLE_PATH,RP_SAMPLE_PATH, PHITS_DOSE_PATH, RD_OUTPUT_PATH)
+    rt_dose_creator(CT_SAMPLE_PATH,RP_SAMPLE_PATH, DIR_PATH, RD_OUTPUT_PATH)
 
 if __name__ == "__main__":
     main()
