@@ -5,90 +5,6 @@ import pydicom as dicom
 import datetime
 import mcpl
 
-def rt_dose_changer(sample_rt_dose, sample_ct, PHITS_DOSE_PATH, output_rt_dose):
-
-    array_dose = list(get_dose(PHITS_DOSE_PATH))
-    # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
-    Boron_dose = np.array(array_dose[:901120])
-    Boron_dose = np.reshape(Boron_dose, (55, 128, 128))
-    Boron_dose = np.flip(Boron_dose, axis=1)
-    Boron_dose = np.float32(Boron_dose)
-    print(Boron_dose.max())
-    Nitrogen_dose = np.array(array_dose[901120:1802240])
-    Nitrogen_dose = np.reshape(Nitrogen_dose, (55, 128, 128))
-    Nitrogen_dose = np.flip(Nitrogen_dose, axis=1)
-    Nitrogen_dose = np.float32(Nitrogen_dose)
-    print(Nitrogen_dose.max())
-    Hydrogen_dose = np.array(array_dose[1802240:])
-    Hydrogen_dose = np.reshape(Hydrogen_dose, (55, 128, 128))
-    Hydrogen_dose = np.flip(Hydrogen_dose, axis=1)
-
-    Hydrogen_dose = np.float32(Hydrogen_dose)
-    print(Hydrogen_dose.max())
-
-    ################# MANUAL ##############
-    array_dose = Hydrogen_dose
-
-    #print(array_dose.shape)
-#    array_dose = np.array(Boron_dose)
-    #print(len(Hydrogen_dose))
-    #print(len(Boron_dose))
-    #print(len(Nitrogen_dose))
-#    array_dose = np.reshape(array_dose, (55, 128, 128))
-
-    ds = dicom.dcmread(sample_rt_dose)
-    ds_ct = dicom.dcmread(sample_ct)
-
-    # TODO dose normalization 고민해봐야함.
-    # Pixel data 교환.
-    #array_dose = np.float32(array_dose)
-
-    # Density dividing
-    #array_dose = array_dose / get_voxel(PHITS_VOXEL_INPUT)
-    # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
-    # RBE or Q-value multiplying
-    #Q_value = 2.34
-    #array_dose = array_dose * Q_value
-
-    #꼭 unit32로 바꾸어야만 들어가나..? Pixel Data를 바로 바꾸면 안되나? 도전!
-
-    array_dose[ array_dose < np.max(array_dose)*0.00001] = 0  # Erase tiny values.
-    ds.DoseGridScaling = np.min(array_dose[array_dose > 0])  # Scaling
-    array_dose = array_dose/np.min(array_dose[array_dose > 0])   # Range shifting
-    array_dose = np.uint32(array_dose)                           # float to integer
-
-    ds.PixelData = array_dose.tobytes()
-
-    # test = np.frombuffer(ds.PixelData, dtype=np.float32)
-    # print('Here !')
-    # print(test.max())
-
-    ds.Rows, ds.Columns = array_dose.shape[2], array_dose.shape[1]
-    ds.NumberOfFrames = array_dose.shape[0]
-
-    ds.GridFrameOffsetVector = []
-    for i in range(ds.NumberOfFrames):
-        ds.GridFrameOffsetVector.append(i * 3)
-    if ds.DVHSequence:
-        del ds.DVHSequence
-
-    # only for the observation
-    ds.PixelSpacing = [ds_ct.PixelSpacing[0]*(512/ds.Rows), ds_ct.PixelSpacing[1]*(512/ds.Rows)]
-
-    #-------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
-    IPP = [-238, -148, -72]  # or [-238, -148, 90]
-    dose_grid_start = [IPP[0] - 0.5 * ds_ct.PixelSpacing[0], IPP[1] - 0.5 * ds_ct.PixelSpacing[1], IPP[2] - 0.5 * ds_ct.SliceThickness]
-    ds.ImagePositionPatient = [dose_grid_start[0]+ds.PixelSpacing[0], dose_grid_start[1]+ds.PixelSpacing[1], dose_grid_start[2]+1.5 ]
-
-    dicom.filewriter.dcmwrite(output_rt_dose, ds, write_like_original=False)
-
-    # Pixel data 교환.
-    '''
-    array_dose = np.float32(array_dose)
-    array_dose = np.uint32(array_dose)
-    '''
-
-
 def getNucDose(DATA_PATH):
     # Getting dose from PHITS output file.
     f1 = open(DATA_PATH, 'r')
@@ -371,7 +287,6 @@ def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
     return dataset_dose
 
 
-
 def main():
     PHITS_DOSE_PATH = "/Users/sangmin/BNCT_dose.out"
     RD_SAMPLE_PATH = "./Brain_CT/44254984/C1/RD.1.2.246.352.71.7.482169467.721183.20140127155500.dcm"
@@ -390,6 +305,7 @@ def main():
 
     #rt_dose_changer(RD_SAMPLE_PATH,CT_SAMPLE_PATH, PHITS_DOSE_PATH, RD_OUTPUT_PATH)
     rt_dose_creator(CT_SAMPLE_PATH,RP_SAMPLE_PATH, DIR_PATH, RD_OUTPUT_PATH)
+    np.fromfile()
 
 if __name__ == "__main__":
     main()
