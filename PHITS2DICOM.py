@@ -25,7 +25,7 @@ def getNucDose(DATA_PATH):
                 #print(next_line)
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
             # Dose reading for 1639 lines.
-            for b in range(1639):
+            for b in range(2890):
                 cur_line = f1.readline().split()
                 for c in range(len(cur_line)):
                     dose.append(cur_line[c]) # Dose stacking.
@@ -57,7 +57,7 @@ def getGDose(DATA_PATH):
                 #print(next_line)
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
             # Dose reading for 1639 lines.
-            for b in range(1639):
+            for b in range(2890):
                 cur_line = f1.readline().split()
                 for c in range(len(cur_line)):
                     dose.append(cur_line[c]) # Dose stacking.
@@ -91,8 +91,8 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
 
     Gamma_dose = list(getGDose(DIR_PATH+"photon_dose_depth.out"))
     # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
-    Gamma_dose = np.array(Gamma_dose[:901120])
-    Gamma_dose = np.reshape(Gamma_dose, (55, 128, 128))
+    Gamma_dose = np.array(Gamma_dose[:1589500])
+    Gamma_dose = np.reshape(Gamma_dose, (55, 170, 170))
     Gamma_dose = np.flip(Gamma_dose, axis=1)
     Gamma_dose = np.float32(Gamma_dose)
 
@@ -101,18 +101,18 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
     print('Gamma dose max: ', Gamma_dose.max())
 
     # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
-    Boron_dose = np.array(array_dose[:901120])
-    Boron_dose = np.reshape(Boron_dose, (55, 128, 128))
+    Boron_dose = np.array(array_dose[:1589500])
+    Boron_dose = np.reshape(Boron_dose, (55, 170, 170))
     Boron_dose = np.flip(Boron_dose, axis=1)
     Boron_dose = np.float32(Boron_dose)
     print('Boron dose max: ', Boron_dose.max())
-    Nitrogen_dose = np.array(array_dose[901120:1802240])
-    Nitrogen_dose = np.reshape(Nitrogen_dose, (55, 128, 128))
+    Nitrogen_dose = np.array(array_dose[1589500:3179000])
+    Nitrogen_dose = np.reshape(Nitrogen_dose, (55, 170, 170))
     Nitrogen_dose = np.flip(Nitrogen_dose, axis=1)
     Nitrogen_dose = np.float32(Nitrogen_dose)
     print('Nitrogen dose max: ', Nitrogen_dose.max())
-    Hydrogen_dose = np.array(array_dose[1802240:])
-    Hydrogen_dose = np.reshape(Hydrogen_dose, (55, 128, 128))
+    Hydrogen_dose = np.array(array_dose[3179000:])
+    Hydrogen_dose = np.reshape(Hydrogen_dose, (55, 170, 170))
     Hydrogen_dose = np.flip(Hydrogen_dose, axis=1)
 
     Hydrogen_dose = np.float32(Hydrogen_dose)
@@ -294,7 +294,7 @@ def main():
     RD_OUTPUT_PATH = "/Users/sangmin/Boron.dcm"
     RP_SAMPLE_PATH = "./Brain_CT/44254984/C1/RP.1.2.246.352.71.5.482169467.300863.20140127145445.dcm"
     PHITS_VOXEL_INPUT = "./PHITS2DICOM/voxel.inp"
-    DIR_PATH = "/Users/sangmin/Downloads/05/"
+    DIR_PATH = "/Users/sangmin/PHITS2DICOM_test/"
 
     '''
     for a in range(10):
