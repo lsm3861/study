@@ -23,7 +23,7 @@ TLD 600의 output들을 다 평균내기. rel_error 은 값들을 제곱해서 �
 #    flux2.append(0)
 #    err2.append(0)
 
-f1 = open("/Users/sangmin/Downloads/mctam", 'r')
+f1 = open("/Users/sangmin/Downloads/mctap", 'r')
 
 tally_number = 0
 data_output_600_air = np.zeros((7, 400))
@@ -113,22 +113,39 @@ for i in range(385):
     f7.write(str(tmp_array[tmp_array!=0].mean()))
     f7.write('\n')
     tmp_array = data_rel_error_600_air[:, i]
-    f8.write(str(tmp_array[tmp_array!=0].mean()))
+    tmp_array[1 == tmp_array] = 0
+    f8.write(str(np.sqrt(np.sum(np.square(tmp_array)))))
+    #f8.write(str(tmp_array[tmp_array!=0].mean()))
     f8.write('\n')
+
     tmp_array = data_rel_error_600_covered[:, i]
-    f9.write(str(tmp_array[tmp_array!=0].mean()))
+    tmp_array[1 == tmp_array] = 0
+    f9.write(str(np.sqrt(np.sum(np.square(tmp_array)))))
+    #f9.write(str(tmp_array[tmp_array!=0].mean()))
     f9.write('\n')
+
     tmp_array = data_rel_error_600_back[:, i]
-    f10.write(str(tmp_array[tmp_array!=0].mean()))
+    tmp_array[1 == tmp_array] = 0
+    f10.write(str(np.sqrt(np.sum(np.square(tmp_array)))))
+    #f10.write(str(tmp_array[tmp_array!=0].mean()))
     f10.write('\n')
+
     tmp_array = data_rel_error_700_air[:, i]
-    f11.write(str(tmp_array[tmp_array!=0].mean()))
+    tmp_array[1 == tmp_array] = 0
+    f11.write(str(np.sqrt(np.sum(np.square(tmp_array)))))
+    #f11.write(str(tmp_array[tmp_array!=0].mean()))
     f11.write('\n')
+
     tmp_array = data_rel_error_700_covered[:, i]
-    f12.write(str(tmp_array[tmp_array!=0].mean()))
+    tmp_array[1 == tmp_array] = 0
+    f12.write(str(np.sqrt(np.sum(np.square(tmp_array)))))
+    #f12.write(str(tmp_array[tmp_array!=0].mean()))
     f12.write('\n')
+
     tmp_array = data_rel_error_700_back[:, i]
-    f13.write(str(tmp_array[tmp_array!=0].mean()))
+    tmp_array[1 == tmp_array] = 0
+    f13.write(str(np.sqrt(np.sum(np.square(tmp_array)))))
+    #f13.write(str(tmp_array[tmp_array!=0].mean()))
     f13.write('\n')
 
 

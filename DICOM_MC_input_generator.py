@@ -31,16 +31,11 @@
 
 import pydicom as dicom
 import numpy as np
-import matplotlib.pyplot as plt
 import sys
 import glob
-import mcpl
-from scipy.io import FortranFile
-import os
-from subprocess import Popen, PIPE
 
 
-    # # load the DICOM files
+# # load the DICOM files
     # files = []
     # print('glob: {}'.format(sys.argv[1]))
     # for fname in glob.glob(sys.argv[1], recursive=False):

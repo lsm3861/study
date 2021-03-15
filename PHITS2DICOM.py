@@ -1,9 +1,7 @@
-import sys
-import os
 import numpy as np
 import pydicom as dicom
 import datetime
-import mcpl
+
 
 def getNucDose(DATA_PATH):
     # Getting dose from PHITS output file.
@@ -89,8 +87,8 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
 
     array_dose = list(getNucDose(DIR_PATH+"BNCT_dose.out"))
 
-    Gamma_dose = list(getGDose(DIR_PATH+"photon_dose_depth.out"))
-    # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
+    Gamma_dose = list(getGDose(DIR_PATH+"photon_dose.out"))
+
     Gamma_dose = np.array(Gamma_dose[:1589500])
     Gamma_dose = np.reshape(Gamma_dose, (55, 170, 170))
     Gamma_dose = np.flip(Gamma_dose, axis=1)
@@ -305,7 +303,7 @@ def main():
 
     #rt_dose_changer(RD_SAMPLE_PATH,CT_SAMPLE_PATH, PHITS_DOSE_PATH, RD_OUTPUT_PATH)
     rt_dose_creator(CT_SAMPLE_PATH,RP_SAMPLE_PATH, DIR_PATH, RD_OUTPUT_PATH)
-    np.fromfile()
+    #np.fromfile()
 
 if __name__ == "__main__":
     main()

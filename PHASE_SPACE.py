@@ -46,17 +46,21 @@ def MCNP(input_path, output_path):
     neutron = []
     gamma = []
 
+    # 1줄 날리기
+    cur_line = f1.readline().split()
+
     #TODO Photon, neutron dose case should be added
     while 1:
         cur_line = f1.readline().split()
         if f1.tell() == os.fstat(f1.fileno()).st_size:
             break
-        if len(cur_line) > 2 and cur_line[1] == "2112": #and (pow(float(cur_line[3]), 2) + pow(float(cur_line[4]), 2)) <= 7.5*7.5:
+        #if len(cur_line) > 2 and cur_line[1] == "2112": #and (pow(float(cur_line[3]), 2) + pow(float(cur_line[4]), 2)) <= 7.5*7.5:
+        if len(cur_line) > 2:
             #neutron.append(cur_line[2]) # Energy
             #neutron.append(math.sqrt(pow(float(cur_line[3]), 2) + pow(float(cur_line[4]), 2))) # Distance from origin
-            neutron.append(cur_line[8]) # Directionality
-        if len(cur_line) > 2 and cur_line[1] == "2112" and  cur_line[5] =="102.5":
-            print(cur_line[3], cur_line[4], cur_line[5], " ", cur_line[8])
+            neutron.append(cur_line[7]) # Directionality
+        #if len(cur_line) > 2 and cur_line[1] == "2112" and  cur_line[5] =="102.5":
+        #    print(cur_line[3], cur_line[4], cur_line[5], " ", cur_line[8])
         #elif len(cur_line) > 2 and cur_line[1] == "22" and (pow(float(cur_line[3]), 2) + pow(float(cur_line[4]), 2)) <= 7.5*7.5:
             #gamma.append(cur_line[2])  # Energy
             #gamma.append(math.sqrt(pow(float(cur_line[3]), 2) + pow(float(cur_line[4]), 2)))  # Distance from origin
@@ -87,7 +91,8 @@ def GEANT(input_path, output_path):
         if f1.tell() == os.fstat(f1.fileno()).st_size:
             break
 
-        if len(cur_line) > 5 and cur_line[7] == "neutron":
+        #if len(cur_line) > 5 and cur_line[7] == "gamma":
+        if len(cur_line) > 5:
             #neutron.append(cur_line[6]) # Energy
             #neutron.append(math.sqrt(pow(float(cur_line[0]), 2) + pow(float(cur_line[1]), 2)))  # Distance from origin, unit: mm
             neutron.append(cur_line[5]) # Directionality
@@ -99,7 +104,7 @@ def GEANT(input_path, output_path):
 
     #n, bins, patches = pl.hist(np.float32(np.array(neutron)), bins=np.logspace(np.log10(1E-9), np.log10(10.0), 201))
     #n, bins, patches = pl.hist(np.float32(np.array(gamma)), bins=np.linspace(0, 5, 51))
-    n, bins, patches = pl.hist(np.float32(np.array(neutron)), bins=np.linspace(-1, 1, 101))
+    n, bins, patches = pl.hist(np.float32(np.array(neutron)), bins=np.linspace(0, 1, 101))
     #pl.gca().set_xscale("log")
     pl.gca().set_xscale("linear")
     pl.show()
@@ -269,16 +274,16 @@ def main():
     # Energy spectrum
     # Directionality (-1 ~ +1)
     #
-    #PHITS("/Users/sangmin/Step1_phsp_dmp.out.total", "/Users/sangmin/PHITS_STEP1_Directionality.out")
+    #PHITS("/Users/sangmin/Downloads/Step1_phsp_dmp.out.total", "/Users/sangmin/Downloads/PHITS_target_10MeV_Directionality.out")
     #PHITS("/Users/sangmin/Step2_phsp_dmp.out.total", "/Users/sangmin/PHITS_STEP2_Directionality.out")
     #PHITS("/Users/sangmin/Step3_phsp_dmp.out.total", "/Users/sangmin/PHITS_STEP3_Directionality.out")
-    # MCNP("/Users/sangmin/STEP1_wssa.txt", "/Users/sangmin/MCNP6_STEP1_Directionality.out")
+    #MCNP("/Users/sangmin/Downloads/target_10MeV_wssa.txt", "/Users/sangmin/Downloads/MCNP6_target_10MeV_Directionality.out")
     # MCNP("/Users/sangmin/STEP2_wssa.txt", "/Users/sangmin/MCNP6_STEP2_Directionality.out")
     # MCNP("/Users/sangmin/STEP3_wssa.txt", "/Users/sangmin/MCNP6_STEP3_Directionality.out")
-    gammaKnife_MCNP("/Users/sangmin/Downloads/wssa_2E11.txt", "/Users/sangmin/Downloads/2E11")
-    #GEANT("/Users/sangmin/181119_phsp_New_Step_1.txt", "/Users/sangmin/GEANT4_STEP1_Directionality.out")
+    #gammaKnife_MCNP("/Users/sangmin/Downloads/wssa_2E11.txt", "/Users/sangmin/Downloads/2E11")
+    GEANT("/Users/sangmin/Downloads/Beam_exit.txt", "/Users/sangmin/Downloads/GEANT4_Beam_exit_Directionality_v3.out")
     #GEANT("/Users/sangmin/181119_phsp_New_Step_2.txt", "/Users/sangmin/GEANT4_STEP2_Directionality.out")
-    #GEANT("/Users/sangmin/181119_phsp_New_Step_3.txt", "/Users/sangmin/GEANT4_STEP3_Directionality.out")
+    #GEANT("/Users/sangmin/Downloads/181119_phsp_New_Step_3.txt", "/Users/sangmin/Downloads/GEANT4_STEP3_Directionality(3).out")
 
 
 if __name__ == "__main__":
