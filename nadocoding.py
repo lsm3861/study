@@ -112,3 +112,45 @@ while pass_num <= 50:
         print("총 탑승 승객 : {} 분".format(att_num))
     pass_num +=1
 
+# 함수에 가변인자 쓰기
+def profile(name, age, *language):
+    print("이름: {0}\t나이 : {1}\t".format(name, age), end=" ")
+    for lang in language:
+        print(lang, end=" ")
+    print()
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#", "JavaScript")
+profile("김태호", 25, "Kotlin", "Swift")
+
+
+# 전역 변수 사용
+gun = 10
+
+def checkpoint(soldiers):
+    global gun  # 전역 공간에 있는 gun 사용 / 이렇게 사용하는 것 보단 함수에 전달값/반환값으로 사용하는게 코드 관리에 편함
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+
+print("전체 총 : {0}".format(gun))
+checkpoint(2)
+print("남은 총 : {0}".format(gun))
+
+def std_weight(gender, height):
+    if gender =="남":
+        bmi = round(((height*0.01)**2)*22, 2)
+    elif gender =="여":
+        bmi = round(((height*0.01)**2)*21, 2)
+    else:
+        print("남 또는 여 를 입력해주세요!")
+        return
+    print("키 {0}cm {1}자의 표준 체중은 {2}kg 입니다.".format(height, gender, bmi))
+
+gender, height = input("성별(남 또는 여)과 키(cm)를 입력해주세요!").split()
+height = int(height)
+std_weight(gender, height)
+
+scores = {"수학":0, "영어":50,"코딩":100}
+for subjects, score in scores.items():
+    print(subjects.ljust(8), str(score).rjust(4), sep=":") # 정렬 하는 법
+
+for num in range(1,21):
+    print("대기번호 : " + str(num).zfill(3)) #숫자를 0으로 채워줌 ex) 001, 002, 003 으로 만들어 줌
