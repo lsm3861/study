@@ -23,7 +23,7 @@ def getNucDose(DATA_PATH):
                 #print(next_line)
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
             # Dose reading for 1639 lines.
-            for b in range(2890):
+            for b in range(6554):
                 cur_line = f1.readline().split()
                 for c in range(len(cur_line)):
                     dose.append(cur_line[c]) # Dose stacking.
@@ -46,7 +46,7 @@ def getGDose(DATA_PATH):
             #print(cur_line)
             break
 
-        if len(cur_line) > 6 and cur_line[0] == "'no." and cur_line[len(cur_line)-2] == "photon":
+        if len(cur_line) > 2 and cur_line[0] == "'no." and cur_line[len(cur_line)-2] == "photon":
             #print(cur_line)
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
             # Skip 20 lines
@@ -55,7 +55,7 @@ def getGDose(DATA_PATH):
                 #print(next_line)
             # -------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
             # Dose reading for 1639 lines.
-            for b in range(2890):
+            for b in range(6554):
                 cur_line = f1.readline().split()
                 for c in range(len(cur_line)):
                     dose.append(cur_line[c]) # Dose stacking.
@@ -89,32 +89,42 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
 
     Gamma_dose = list(getGDose(DIR_PATH+"photon_dose.out"))
 
-    Gamma_dose = np.array(Gamma_dose[:1589500])
-    Gamma_dose = np.reshape(Gamma_dose, (55, 170, 170))
+    Gamma_dose = np.array(Gamma_dose[:5242880])
+    Gamma_dose = np.reshape(Gamma_dose, (80, 256, 256))  # Z, Y, X 순서 인 듯 !
+    #Gamma_dose = np.flip(Gamma_dose, axis=2)
     Gamma_dose = np.flip(Gamma_dose, axis=1)
     Gamma_dose = np.float32(Gamma_dose)
 
     # MeV/cm3 to Gy, density: 1.094E-3 kg/cm3, 1 MeV = 1.60218E-13
     Gamma_dose = (Gamma_dose / 0.001094) * 1.60218E-13
     print('Gamma dose max: ', Gamma_dose.max())
+    #np.savetxt('/Users/sangmin/PHITS2DICOM_test/gamma.txt', np.ravel(Gamma_dose, order='C')) # only for matlab
 
     # Dose parsing into 3 components ( Boron / Nitrogen / Hydrogen )
-    Boron_dose = np.array(array_dose[:1589500])
-    Boron_dose = np.reshape(Boron_dose, (55, 170, 170))
+    Boron_dose = np.array(array_dose[:5242880])
+    Boron_dose = np.reshape(Boron_dose, (80, 256, 256))
+    #Boron_dose = np.flip(Boron_dose, axis=2)
     Boron_dose = np.flip(Boron_dose, axis=1)
     Boron_dose = np.float32(Boron_dose)
     print('Boron dose max: ', Boron_dose.max())
-    Nitrogen_dose = np.array(array_dose[1589500:3179000])
-    Nitrogen_dose = np.reshape(Nitrogen_dose, (55, 170, 170))
+    #np.savetxt('/Users/sangmin/PHITS2DICOM_test/Boron.txt', np.ravel(Boron_dose, order='C')) # only for matlab
+
+    Nitrogen_dose = np.array(array_dose[5242880:10485760])
+    Nitrogen_dose = np.reshape(Nitrogen_dose, (80, 256, 256))
+    #Nitrogen_dose = np.flip(Nitrogen_dose, axis=2)
     Nitrogen_dose = np.flip(Nitrogen_dose, axis=1)
     Nitrogen_dose = np.float32(Nitrogen_dose)
     print('Nitrogen dose max: ', Nitrogen_dose.max())
-    Hydrogen_dose = np.array(array_dose[3179000:])
-    Hydrogen_dose = np.reshape(Hydrogen_dose, (55, 170, 170))
+    # np.savetxt('/Users/sangmin/PHITS2DICOM_test/Nitrogen.txt', np.ravel(Nitrogen_dose, order='C')) # only for matlab
+
+    Hydrogen_dose = np.array(array_dose[10485760:])
+    Hydrogen_dose = np.reshape(Hydrogen_dose, (80, 256, 256))
+    #Hydrogen_dose = np.flip(Hydrogen_dose, axis=2)
     Hydrogen_dose = np.flip(Hydrogen_dose, axis=1)
 
     Hydrogen_dose = np.float32(Hydrogen_dose)
     print('Hydrogen dose max: ', Hydrogen_dose.max())
+    # np.savetxt('/Users/sangmin/PHITS2DICOM_test/Hydrogen.txt', np.ravel(Hydrogen_dose, order='C')) # only for matlab
 
     ################# MANUAL ##############
     #array_dose = Boron_dose
@@ -132,8 +142,9 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
 
     # dicom.filewriter.dcmwrite(output_rt_dose, ds_dose, write_like_original=True)
 
-    ds_dose.Rows, ds_dose.Columns = Boron_dose.shape[2], Boron_dose.shape[1]
+    ds_dose.Rows, ds_dose.Columns = Boron_dose.shape[1], Boron_dose.shape[2]
     ds_dose.NumberOfFrames = Boron_dose.shape[0]
+    #print(Boron_dose.shape[0])
 
     ds_dose.GridFrameOffsetVector = []
     for i in range(ds_dose.NumberOfFrames):
@@ -145,7 +156,7 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
     ds_dose.PixelSpacing = [ds_ct.PixelSpacing[0]*(512/ds_dose.Rows), ds_ct.PixelSpacing[1]*(512/ds_dose.Rows)]
 
     #-------------------------------------------------- MANUAL#-------------------------------------------------- MANUAL
-    IPP = [-238, -148, -72]  # or [-238, -148, 90]
+    IPP = [-238, -148, -147]  # or [-238, -148, 90]
     dose_grid_start = [IPP[0] - 0.5 * ds_ct.PixelSpacing[0], IPP[1] - 0.5 * ds_ct.PixelSpacing[1], IPP[2] - 0.5 * ds_ct.SliceThickness]
     ds_dose.ImagePositionPatient = [dose_grid_start[0]+ds_dose.PixelSpacing[0], dose_grid_start[1]+ds_dose.PixelSpacing[1], dose_grid_start[2]+1.5 ]
 
@@ -159,7 +170,7 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
     array_dose = array_dose/np.min(array_dose[array_dose > 0])   # Range shifting
     array_dose = np.uint32(array_dose)                           # float to integer
     ds_dose.PixelData = array_dose.tobytes()
-    ds_dose.save_as(DIR_PATH+"Boron.dcm")
+    ds_dose.save_as(DIR_PATH+"Boron.dcm", write_like_original=False)
 
     array_dose = Nitrogen_dose
     array_dose[ array_dose < np.max(array_dose)*0.00001] = 0  # Erase tiny values.
@@ -185,7 +196,7 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
     ds_dose.PixelData = array_dose.tobytes()
     ds_dose.save_as(DIR_PATH+"Gamma.dcm")
 
-    array_dose = Boron_dose + Nitrogen_dose + Hydrogen_dose + Gamma_dose
+    array_dose = 3.8*Boron_dose + 3.2*Nitrogen_dose + 3.2*Hydrogen_dose + Gamma_dose
     print('Total dose max: ', array_dose.max())
     #print(array_dose.shape)
     array_dose[array_dose < np.max(array_dose) * 0.00001] = 0  # Erase tiny values.
@@ -197,7 +208,9 @@ def rt_dose_creator(sample_ct, sample_rt_plan, DIR_PATH, output_rt_dose):
 
 def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
     # Header setup
-    dataset_dose_meta = dicom.dataset.Dataset()
+    #dataset_dose_meta = dicom.dataset.Dataset()
+    dataset_dose_meta = dicom.dataset.FileMetaDataset()
+    dataset_dose_meta.TransferSyntaxUID = '1.2.840.10008.1.2.1'
     dataset_dose_meta.MediaStorageSOPClassUID = '1.2.840.10008.5.1.4.1.1.481.2'
     dataset_dose_meta.MediaStorageSOPInstanceUID = "1.2.3"
     dataset_dose_meta.ImplementationClassUID = "1.2.3.4"
@@ -256,12 +269,12 @@ def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
     dataset_dose.ImageOrientationPatient = dataset_ct.ImageOrientationPatient
 
     # TEST VALUE 들로 채워둠.
-    dataset_dose.ImagePositionPatient = [-80, -110, 66]  # float
+    #dataset_dose.ImagePositionPatient = [-80, -110, 66]  # float
     dataset_dose.SliceThickness = 3  # float
-    dataset_dose.Rows = 9  # int
-    dataset_dose.Columns = 9  # int
-    dataset_dose.PixelSpacing = [25, 25]  # float
-    dataset_dose.NumberOfFrames = 60  # int
+    dataset_dose.Rows = 256  # int
+    dataset_dose.Columns = 256  # int
+    #dataset_dose.PixelSpacing = [25, 25]  # float
+    dataset_dose.NumberOfFrames = 80  # int
     dataset_dose.GridFrameOffsetVector = []
     for i in range(dataset_dose.NumberOfFrames):
         dataset_dose.GridFrameOffsetVector.append(-i * float(dataset_dose.SliceThickness))
@@ -286,13 +299,13 @@ def rt_dose_header_setup(dataset_ct, dataset_plan, output_rt_dose):
 
 
 def main():
-    PHITS_DOSE_PATH = "/Users/sangmin/BNCT_dose.out"
+    PHITS_DOSE_PATH = "/Users/sangmin/Downloads/BNCT_dose.out"
     RD_SAMPLE_PATH = "./Brain_CT/44254984/C1/RD.1.2.246.352.71.7.482169467.721183.20140127155500.dcm"
     CT_SAMPLE_PATH = "./Brain_CT/44254984/C1/CT.1.2.840.113704.1.111.428.1390280577.191.dcm"
     RD_OUTPUT_PATH = "/Users/sangmin/Boron.dcm"
     RP_SAMPLE_PATH = "./Brain_CT/44254984/C1/RP.1.2.246.352.71.5.482169467.300863.20140127145445.dcm"
     PHITS_VOXEL_INPUT = "./PHITS2DICOM/voxel.inp"
-    DIR_PATH = "/Users/sangmin/PHITS2DICOM_test/"
+    DIR_PATH = "/Users/sangmin/Downloads/"
 
     '''
     for a in range(10):
